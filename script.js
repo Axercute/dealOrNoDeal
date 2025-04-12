@@ -127,4 +127,17 @@ dealerOffer=prizeMoney.reduce((startElement,nextElement)=>{return (startElement+
 window.alert(`Dealer offers $${dealerOffer}`)
 }
 })
-//----------Game Start----------------------
+//----------Slider----------------------
+const prizePool = document.querySelector(".prizePool")
+const sliderPrizePool = document.querySelector(".sliderPrizePool")
+prizePool.addEventListener("click",()=>{
+sliderPrizePool.classList.toggle("sliderToggleIn")
+sliderHtp.classList.remove("sliderToggleIn")
+})
+
+const htp = document.querySelector(".htp")
+const sliderHtp = document.querySelector(".sliderHtp")
+htp.addEventListener("click",()=>{  
+sliderHtp.classList.toggle("sliderToggleIn")
+sliderPrizePool.classList.remove("sliderToggleIn")
+})
