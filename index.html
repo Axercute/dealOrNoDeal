@@ -1,189 +1,357 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>𖢻Deal Or No Deal𖢻</title>
-    <script defer src="script.js"></script>
-    <style>
-*{box-sizing: border-box;
-    margin: 0;
-}
-body{
-    background-color: #b7b7b7;
-    font-family: Arial, Helvetica, sans-serif;
-}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>𖢻Deal Or No Deal𖢻</title>
+        <!--Font for deal or no deal page-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Bungee+Tint&display=swap" rel="stylesheet">
+        <script defer src="script.js"></script>
+        <style>
+    *{box-sizing: border-box;
+        margin: 0;
+    }
+    body{
+        background-color: #b7b7b7;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-.nav{
-    background-color: coral;
-    width: 100%;
-    position: sticky;
-    top:0;
-    height: 75px;
-    z-index: 10;
+    .nav{
+        background-color: coral;
+        width: 100%;
+        position: sticky;
+        top:0;
+        height: 75px;
+        z-index: 100;
 
-}
-.menu{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-a:hover{
-    background-color: rgb(255, 220, 155);
-    cursor: pointer;
-}
-.menu a{
-    text-decoration: none;
-    font-size: 25px;
-    color: black;
-    line-height: 75px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
+    }
+    .menu{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    span:hover{
+        background-color: rgb(255, 220, 155);
+        cursor: pointer;
+    }
+    .menu span{
+        text-decoration: none;
+        font-size: 25px;
+        color: black;
+        line-height: 75px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
-main{
+    main{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    .design:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+        transform-origin: center bottom;
+        background-color: red;
+    }
+
+    .design{
+        display: grid;
+        grid-template-rows: 25% 50% 25%; 
+        width: 6rem;
+        height: 3.75rem;
+        z-index: 5;
+        position: absolute;
+    }
+    #row1_design{
+        background-color: brown;
+    }
+    #row2_design{
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #row3_design{
+        background-color: brown;
+    }
+    #button_design{
+        width: 1rem;
+        height: 1rem;
+        border-radius: 0.5rem;
+        background-color: black;
+    }
+    .whole_set{
+        display: flex;
+        align-items: center;
+    }
+    .lady{
+        font-size: 7.5rem;
+        margin-left: -4.5rem;
+        margin-bottom: 4.6rem;
+        z-index: -1;
+        margin-right: -2rem;
+    }
+    .inner_design{
+        width: 6rem;
+        height: 3.75rem;
+        background-color: pink;
+        z-index: 0;
+        border: solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        position: relative;
+        color:black;
+        text-align: center;
+    }
+    .design#clicked{
+    transition: 0.5s;
+    transform: rotateX(180deg);
+    z-index: -5;
+    }
+    .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Makes sure the video covers the entire screen */
+        z-index: -100; /* Keeps the video behind everything else */
+        }
+
+    /*Sliders*/
+    .sliderPrizePool{
+    transform: translate(-50%, -50%);
+    top: 150%;
+    left:50%;
+    position: fixed;
+    background: linear-gradient(to bottom, #b39ddb, #7a4a8b);
+    height: 90vh;
+    width: 40vw;
+    z-index: 20;
+    box-shadow: 0.5rem 0.5rem 1rem grey;
+    border-radius: 1rem;
+    border: solid;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin-left: 25px;
-    margin-right: 25px;
-}
-.design:hover{
-    cursor: pointer;
-    transform: scale(1.1);
-    transform-origin: center bottom;
-    background-color: red;
-}
-
-.design{
-    display: grid;
-      grid-template-rows: 25% 50% 25%; 
-      width: 6rem;
-      height: 3.75rem;
-      z-index: 5;
-      position: absolute;
-}
-#row1_design{
-    background-color: brown;
-}
-#row2_design{
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#row3_design{
-    background-color: brown;
-}
-#button_design{
-    width: 1rem;
-    height: 1rem;
-    border-radius: 0.5rem;
-    background-color: black;
-}
-.whole_set{
-    display: flex;
-    align-items: center;
-}
-.lady{
-    font-size: 7.5rem;
-    margin-left: -4.5rem;
-    margin-bottom: 4.6rem;
-    z-index: -1;
-    margin-right: -2rem;
-}
-.inner_design{
-    width: 6rem;
-    height: 3.75rem;
-    background-color: pink;
-    z-index: 0;
-    border: solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    position: relative;
-    color:black;
-    text-align: center;
-}
-.design#clicked{
-transition: 0.5s;
-transform: rotateX(180deg);
-z-index: -5;
-}
-.video-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Makes sure the video covers the entire screen */
-      z-index: -100; /* Keeps the video behind everything else */
+    transition: top 1s ease;
     }
 
-/*Sliders*/
+    .sliderPrizePool.sliderToggleIn {
+    top: 55%;
+    }   
 
-.slider{
+    .sliderHtp.sliderToggleIn {
+    top: 55%;
+    } 
+    .sliderDeal.sliderToggleIn {
+    top: 55%;
+    } 
 
-    position: absolute;
-    top: 50%;
-    left: 30%;
+    .prizeBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;   
+    height: 6%;
+    background-color: rgba(255, 255, 255, 2);
+    border: 0.2rem solid;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    font-size: 100%;
+    border-radius: 1rem;
+    }
+
+    #toggle{
+    background: linear-gradient(to right, #f6ff00, #ffff66);
+    box-shadow: 0 0 0.5rem 0.2rem yellow;
+    }
+
+    .sliderHtp{
     transform: translate(-50%, -50%);
-    background-color: red;
-    height: 10rem;
-    width: 10rem;
-    z-index: 20; /* Ensures it's on top */
-    display: none;
+    top: 150%;
+    left:50%;
+    position: fixed;
+    background: linear-gradient(to bottom, #ff01b7, #ac036b);
+    height: 90vh;
+    width: 40vw;
+    z-index: 20;
+    box-shadow: 0.5rem 0.5rem 1rem grey;
+    border-radius: 1rem;
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    transition: top 1s ease;
+    text-align: center;
+    }
+
+    h1{
+        margin-top: 5%;
+        font-size: 300%;
+        color:white;
+    }
+    p{
+        font-size: 125%;
+        text-align: left;
+        margin-left: 5%;
+        color: white;
+    }
+
+    .sliderDeal{
+    transform: translate(-50%, -50%);
+    top: 55%;
+    left:50%;
+    position: fixed;
+    background: linear-gradient(to bottom, rgba(255, 255, 1, 0.99), rgb(255, 213, 5));
+    height: 40vh;
+    width: 40vw;
+    z-index: 20;
+    box-shadow: 0.5rem 0.5rem 1rem grey;
+    border-radius: 1rem;
+    border: solid;
+    transition: top 1s ease;
+    text-align: center;
+    font-size: 150%;
+    }
+
+    .bungee-spice-regular {
+  font-family: "Bungee Spice", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 200%;
 }
 
-.slider2{
-
-position: relative;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-background-color: purple;
-height: 5rem;
-width: 5rem;
-z-index: 20; /* Ensures it's on top */
-
+.bungee-tint-regular {
+  font-family: "Bungee Tint", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
-    </style>
-</head>
-<body>
-<div class="nav">
-    <div class="menu">
-<a href="index.html">Home</a>
-<a href="/">Status</a>
-<a href="/">How To Play</a>
-<a href="/">Super Powers</a>
+
+
+#offerPrize{
+    font-size: 300%;
+}
+button{
+    font-size: 150%;
+    border-radius: 1rem;
+    padding: 0.3rem;
+    margin-top: 2%;
+}
+button:hover{
+    background-color:red ;
+    cursor: pointer;
+}
+#deal{
+margin-right: 10%;
+margin-bottom: 5%;
+font-size: 150%;
+}
+#noDeal{
+    margin-left: 10%;
+    font-size: 150%;
+}
+#deal:hover{
+    background-color: rgb(0, 255, 0);
+}
+#noDeal:hover{
+    background-color:rgb(255, 6, 6); 
+}
+
+.timer{
+    height: 10%;
+    width: 90%;
+    background-color: rgb(9, 255, 9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid;
+    margin: auto;
+    border-radius: 1rem;
+    font-size: 80%;
+}
+        </style>
+    </head>
+    <body>
+    <div class="nav">
+        <div class="menu">
+    <span class="home">Home</span>
+    <span class="prizePool">Prize Pool</span>
+    <span class="htp">How To Play</span>
+    <span class="sp">Super Powers</span>
+        </div>
     </div>
-</div>
 
 
-<main>
-    <div class="whole_set">
-        <div class="inner_design">$500,000</div>
-        <div class="design">
-            <div id="row1_design"></div>
-            <div id="row2_design">
-                <div id="button_design"></div>
+    <main>
+        <div class="whole_set" id="hidden">
+            <div class="inner_design">$500,000</div>
+            <div class="design">
+                <div id="row1_design"></div>
+                <div id="row2_design">
+                    <div id="button_design"></div>
+                </div>
+                <div id="row3_design">
+                </div>
             </div>
-            <div id="row3_design">
-            </div>
+
+            <div class="lady"></div>
         </div>
 
-        <div class="lady"></div>
+
+    </main>
+
+    <div class="sliderPrizePool">
+        <div class="prizeBar">$1,000,000</div>
+        <div class="prizeBar">$1,000,000</div>
+        <div class="prizeBar">$1,000,000</div>
+        <div class="prizeBar">$1,000,000</div>
+        <div class="prizeBar">$1,000,000</div>
     </div>
 
+    <div class="sliderHtp">
+        <h1>нσω тσ ρℓαу</h1>
+        <br>
+        <p>🎯Objective:</p>
+        <p>Walk away with the highest amount of money possible by making strategic choices and negotiating with the mysterious Banker.</p>
+        <br>
+        <p>1. At the start, 25 sealed briefcases are displayed (ranging from $1 to $1,000,000).</p>
+        <p>You pick one case to keep — it stays closed until the end of the game (unless you make a deal).</p>
+        <br>
+        <p>2. In rounds, you open a set number of the remaining cases to eliminate cash values from the board.</p>
+        <p>After each round, the Banker calls with a cash offer based on the remaining values.</p>
+        <br>
+        <p>3. After each Banker offer, you must decide:</p>
+        <p>Deal 💼: Accept the money offered and end the game.</p>
+        <p>No Deal ❌: Keep playing and open more cases.</p>
+        <br>
+        <p>4. Eventually, when there is one case left, you will face a choice</p>
+        <p>Stick with your original case or swap it for the last remaining one</p> 
+        <br>
+        <p>5. You will walk home with amount you made with your choice</p>
+    </div>
+    <div class="sliderDeal">
+        <h2 class="bungee-spice-regular">💼Dealer's Offer💼</h2>
+        <h2 class="bungee-tint-regular" id="offerPrize">$200,000</h2>
+        <div class="timer">
+            <div class="timer-bar"></div>
+        </div>
+        <button class="bungee-spice-regular" id="deal">Deal</button>
+        <button class="bungee-spice-regular" id="noDeal">No Deal</button>
+    </div>
 
-</main>
-
-<div class="slider">
-    <div class="slider2"></div>
-</div>
-
-<video class="video-background" src="stage.mp4" loop autoplay muted></video>
-</body>
-</html>
+    <video class="video-background" src="stage.mp4" loop autoplay muted></video>
+    </body>
+    </html>
