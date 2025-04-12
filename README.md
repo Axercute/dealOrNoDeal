@@ -1,5 +1,8 @@
 DEAL OR NO DEAL - Advanced
 
+Play Link:
+https://axercute.github.io/dealOrNoDeal/
+
 Background:
 Deal or No Deal is a high-stakes game show where luck, risk, and strategy collide. A contestant selects one sealed briefcase from a set of 26 (or fewer, depending on the version), each containing a hidden cash amount ranging from pocket change to a life-changing jackpot. As the game progresses, the contestant eliminates the remaining cases one by one, revealing their values and narrowing down the possibilities of what's inside their own chosen case.
 
