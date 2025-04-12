@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𖢻Deal Or No Deal𖢻</title>
+    <script defer src="script.js"></script>
+    <style>
+*{box-sizing: border-box;
+    margin: 0;
+}
+body{
+    background-color: #b7b7b7;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav{
+    background-color: coral;
+    width: 100%;
+    position: sticky;
+    top:0;
+    height: 75px;
+    z-index: 10;
+
+}
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+a:hover{
+    background-color: rgb(255, 220, 155);
+    cursor: pointer;
+}
+.menu a{
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    line-height: 75px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.design:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transform-origin: center bottom;
+    background-color: red;
+}
+
+.design{
+    display: grid;
+      grid-template-rows: 25% 50% 25%; 
+      width: 6rem;
+      height: 3.75rem;
+      z-index: 5;
+      position: absolute;
+}
+#row1_design{
+    background-color: brown;
+}
+#row2_design{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#row3_design{
+    background-color: brown;
+}
+#button_design{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.5rem;
+    background-color: black;
+}
+.whole_set{
+    display: flex;
+    align-items: center;
+}
+.lady{
+    font-size: 7.5rem;
+    margin-left: -4.5rem;
+    margin-bottom: 4.6rem;
+    z-index: -1;
+    margin-right: -2rem;
+}
+.inner_design{
+    width: 6rem;
+    height: 3.75rem;
+    background-color: pink;
+    z-index: 0;
+    border: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    position: relative;
+    color:black;
+    text-align: center;
+}
+.design#clicked{
+transition: 0.5s;
+transform: rotateX(180deg);
+z-index: -5;
+}
+.video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Makes sure the video covers the entire screen */
+      z-index: -100; /* Keeps the video behind everything else */
+    }
+
+/*Sliders*/
+
+.slider{
+
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    background-color: red;
+    height: 10rem;
+    width: 10rem;
+    z-index: 20; /* Ensures it's on top */
+    display: none;
+}
+
+.slider2{
+
+position: relative;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: purple;
+height: 5rem;
+width: 5rem;
+z-index: 20; /* Ensures it's on top */
+
+}
+    </style>
+</head>
+<body>
+<div class="nav">
+    <div class="menu">
+<a href="index.html">Home</a>
+<a href="/">Status</a>
+<a href="/">How To Play</a>
+<a href="/">Super Powers</a>
+    </div>
+</div>
+
+
+<main>
+    <div class="whole_set">
+        <div class="inner_design">$500,000</div>
+        <div class="design">
+            <div id="row1_design"></div>
+            <div id="row2_design">
+                <div id="button_design"></div>
+            </div>
+            <div id="row3_design">
+            </div>
+        </div>
+
+        <div class="lady"></div>
+    </div>
+
+
+</main>
+
+<div class="slider">
+    <div class="slider2"></div>
+</div>
+
+<video class="video-background" src="stage.mp4" loop autoplay muted></video>
+</body>
+</html>
