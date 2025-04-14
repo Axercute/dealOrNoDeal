@@ -126,7 +126,12 @@
         z-index: -100; /* Keeps the video behind everything else */
         }
 
-    /*Sliders*/
+
+
+
+
+
+    /*-----------------------------------Sliders-------------------------------------*/
     .sliderPrizePool{
     transform: translate(-50%, -50%);
     top: 150%;
@@ -226,7 +231,6 @@
     transition: top 1s ease;
     text-align: center;
     font-size: 150%;
-    display: none;
     }
 
     .bungee-spice-regular {
@@ -275,15 +279,25 @@ font-size: 150%;
 .timer{
     height: 10%;
     width: 90%;
-    background-color: rgb(9, 255, 9);
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     border: solid;
     margin: auto;
     border-radius: 1rem;
     font-size: 80%;
+    background-color: white;
+    overflow: hidden;
 }
+
+.timeBar{
+    background-color: rgb(9, 255, 9);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: width 0.06 ease;
+}
+
         </style>
     </head>
     <body>
@@ -369,7 +383,7 @@ font-size: 150%;
         <h2 class="bungee-spice-regular">💼Dealer's Offer💼</h2>
         <h2 class="bungee-tint-regular" id="offerPrize">$200,000</h2>
         <div class="timer">
-            <div class="timer-bar"></div>
+            <div class="timeBar"></div>
         </div>
         <button class="bungee-spice-regular" id="deal">Deal</button>
         <button class="bungee-spice-regular" id="noDeal">No Deal</button>

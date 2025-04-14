@@ -127,6 +127,9 @@ dealerOffer=prizeMoney.reduce((startElement,nextElement)=>{return (startElement+
 window.alert(`Dealer offers $${dealerOffer}`)
 }
 })
+
+
+
 //----------Slider----------------------
 const prizePool = document.querySelector(".prizePool")
 const sliderPrizePool = document.querySelector(".sliderPrizePool")
@@ -141,3 +144,33 @@ htp.addEventListener("click",()=>{
 sliderHtp.classList.toggle("sliderToggleIn")
 sliderPrizePool.classList.remove("sliderToggleIn")
 })
+
+const timer = document.querySelector(".timer")
+const timeBar = document.querySelector(".timeBar")
+let width=100
+
+const timeInterval = setInterval(()=>{
+    width-=10
+    timeBar.style.width=`${width}%`
+},1000)
+
+
+
+
+
+// const box = document.querySelector(".box")
+// let lastTime
+// function playAnimation(time) {
+//   if (lastTime != null) {
+//     const delta = time - lastTime
+//     box.style.left = `${parseFloat(box.style.left) + delta * 0.1}%`
+
+//     if (parseFloat(box.style.left) >= 100) {
+//       box.style.left = 0
+//     }
+//   }
+
+//   lastTime = time
+//   window.requestAnimationFrame(playAnimation)
+// }
+// window.requestAnimationFrame(playAnimation)
