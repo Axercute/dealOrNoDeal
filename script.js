@@ -14,13 +14,6 @@ lady.innerText=ladyRandom[Math.floor((Math.random()*ladyRandom.length))] //test 
 
 
 //---------Function------------------------
-function dealorNodeal(){
-    dealerOffer=Math.round(prizeMoney.reduce((startElement,nextElement)=>{return (startElement+nextElement)/(prizeMoney.length+1)},yourPrize))
-setTimeout(() => {
-window.alert(`Dealer offers $${dealerOffer}`)
-}, 1);  //wait for last number to load
-}
-
 function createwholeSet(){ //making a function to place inside body
 //declaring we are putting wholeSet into main
 const main = document.querySelector("main")
@@ -83,22 +76,22 @@ if(turn===1){
     inner_design.innerText='You chose this box'
 }
 if(turn===6){
-    dealorNodeal()
+    bankAlert(10)
     }
 if(turn===11){
-    dealorNodeal()
+    bankAlert(10)
     }
 if(turn===16){
-    dealorNodeal()
+    bankAlert(15)
     }
 if(turn===19){
-    dealorNodeal()
+    bankAlert(20)
     }
 if(turn===22){
-    dealorNodeal()
+    bankAlert(20)
     }
 if(turn===24){
-    dealorNodeal()
+    bankAlert(30)
     }
 })
 
@@ -122,10 +115,6 @@ if(turn===1){
     yourPrize=XgeneratedPrize
     Xinner_design.innerText='You chose this box'
 }
-if(turn===9){
-dealerOffer=prizeMoney.reduce((startElement,nextElement)=>{return (startElement+nextElement)/(prizeMoney.length-1)},yourPrize)
-window.alert(`Dealer offers $${dealerOffer}`)
-}
 })
 
 
@@ -147,5 +136,51 @@ sliderPrizePool.classList.remove("sliderToggleIn")
 
 const timer = document.querySelector(".timer")
 const timeBar = document.querySelector(".timeBar")
+const countDown = document.querySelector(".countDown")
+const offerPrize = document.querySelector("#offerPrize")
+const sliderDeal = document.querySelector(".sliderDeal")
+
+function bankAlert(secondsInput){
+timeBar.style.width=`100%`;
+timeBar.style.backgroundColor=" rgb(0, 255, 0)"
+sliderDeal.style.display="block"
+dealerOffer=Math.round(prizeMoney.reduce((startElement,nextElement)=>{return (startElement+nextElement)/(prizeMoney.length+1)},yourPrize))
+offerPrize.innerHTML=`$${dealerOffer.toLocaleString()}`;
+countDown.innerHTML=secondsInput
 let width=100;
+let timerStart=secondsInput
+function counting(){
+    timerStart--;
+    width-=100/secondsInput;
+    if(timerStart>=0){
+        countDown.innerHTML=timerStart
+        timeBar.style.width=width+`%`;
+    }
+    if(width<=25){
+        timeBar.style.backgroundColor="red"
+    }
+    else if(width<=50){
+        timeBar.style.backgroundColor=" rgb(255, 251, 0)"
+    }
+    else{
+        timeBar.style.backgroundColor=" rgb(0, 255, 0)"
+    }
+    if (width<=0){
+        timeBar.style.width="0"
+        setTimeout(()=>{sliderDeal.style.display="none"},1000)
+        clearInterval(intervalName)
+    }
+}
+const intervalName = setInterval(counting,1000)
+}
+
+prizeMoney.forEach((element)=>{
+    const prizeBar = document.createElement("div")
+    prizeBar.setAttribute("class","prizeBar")
+    prizeBar.innerHTML=`$${element.toLocaleString()}`
+    sliderPrizePool.appendChild(prizeBar)
+})
+
+
+
 

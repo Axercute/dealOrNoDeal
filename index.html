@@ -7,7 +7,7 @@
         <!--Font for deal or no deal page-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Bungee+Tint&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
         <script defer src="script.js"></script>
         <style>
     *{box-sizing: border-box;
@@ -140,7 +140,7 @@
     background: linear-gradient(to bottom, #b39ddb, #7a4a8b);
     height: 90vh;
     width: 40vw;
-    z-index: 20;
+    z-index: 21;
     box-shadow: 0.5rem 0.5rem 1rem grey;
     border-radius: 1rem;
     border: solid;
@@ -192,7 +192,7 @@
     background: linear-gradient(to bottom, #ff01b7, #ac036b);
     height: 90vh;
     width: 40vw;
-    z-index: 20;
+    z-index: 21;
     box-shadow: 0.5rem 0.5rem 1rem grey;
     border-radius: 1rem;
     border: solid;
@@ -221,31 +221,27 @@
     top: 55%;
     left:50%;
     position: fixed;
-    background: linear-gradient(to bottom, rgba(255, 255, 1, 0.99), rgb(255, 213, 5));
+    background: linear-gradient(to bottom, rgba(255, 0, 225), rgb(174, 0, 255));
     height: 40vh;
     width: 40vw;
     z-index: 20;
     box-shadow: 0.5rem 0.5rem 1rem grey;
     border-radius: 1rem;
     border: solid;
-    transition: top 1s ease;
     text-align: center;
     font-size: 150%;
+    display: none;
     }
 
-    .bungee-spice-regular {
-  font-family: "Bungee Spice", sans-serif;
+    .bungee-regular {
+  font-family: "Bungee", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 200%;
+  text-shadow: -1px -1px 0px black,  
+    1px -1px 0px black,
+    -1px 1px 0px black,
+    1px 1px 0px black; /* Simulates stroke effect */;
 }
-
-.bungee-tint-regular {
-  font-family: "Bungee Tint", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
 
 #offerPrize{
     font-size: 300%;
@@ -287,14 +283,23 @@ font-size: 150%;
     border-radius: 1rem;
     font-size: 80%;
     background-color: white;
+    overflow: hidden;
+    position: relative;
 }
 
 .timeBar{
     background-color: rgb(9, 255, 9);
     width: 100%;
     height: 100%;
+    transition: 0.2s width linear;
 }
-
+.countDown{
+    font-size: 100%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    position: absolute;
+}
         </style>
     </head>
     <body>
@@ -326,34 +331,7 @@ font-size: 150%;
 
     </main>
 
-    <div class="sliderPrizePool">
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-        <div class="prizeBar">$1,000,000</div>
-    </div>
+    <div class="sliderPrizePool"></div>
 
     <div class="sliderHtp">
         <h1>нσω тσ ρℓαу</h1>
@@ -377,15 +355,17 @@ font-size: 150%;
         <p>5. You will walk home with amount you made with your choice</p>
     </div>
     <div class="sliderDeal">
-        <h2 class="bungee-spice-regular">💼Dealer's Offer💼</h2>
-        <h2 class="bungee-tint-regular" id="offerPrize">$200,000</h2>
+        <h2 class="bungee-regular" style="color:yellow">💼Dealer's Offer💼</h2>
+        <h2 class="bungee-regular" id="offerPrize" style="color:rgb(6, 255, 27)">$200,000</h2>
         <div class="timer">
             <div class="timeBar"></div>
+            <div class="countDown">10</div>
         </div>
-        <button class="bungee-spice-regular" id="deal">Deal</button>
-        <button class="bungee-spice-regular" id="noDeal">No Deal</button>
+        <button class="bungee-regular" id="deal" style="color:rgb(221, 0, 255)">Deal</button>
+        <button class="bungee-regular" id="noDeal" style="color:rgb(221, 0, 255)">No Deal</button>
     </div>
 
     <video class="video-background" src="stage.mp4" loop autoplay muted></video>
+    <div class="transparentWall"></div>
     </body>
     </html>
