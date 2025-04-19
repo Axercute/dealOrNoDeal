@@ -65,12 +65,24 @@ design.after(lady)
 //--------------------same as the one outside----------------------------
 design.addEventListener("click",()=>{ 
     design.setAttribute("id","clicked")
-    turn+=1
+    turn++
 //--------------------same as the one outside----------------------------
 rngPrize = Math.floor((Math.random()*prizeMoney.length)) //rng and store it
 generatedPrize=prizeMoney[rngPrize] //store the generatedPrize
+
+if(turn>1){
+    const prizeBar = document.querySelectorAll(".prizeBar")
+    prizeBar.forEach((element)=>{
+        prizeBarInNumber=Number(element.getAttribute("prizeBarInNumber"))
+        if(prizeBarInNumber===Number(generatedPrize)){
+            // element.setAttribute("id","match")
+            console.log(`test`)
+        }
+    })}
+    
 inner_design.innerText=`$${generatedPrize.toLocaleString()}` //generating
 prizeMoney.splice(rngPrize,1) //use generated rng and remove that index
+
 if(turn===1){
     yourPrize=generatedPrize
     inner_design.innerText='You chose this box'
@@ -82,7 +94,7 @@ if(turn===11){
     bankAlert(10)
     }
 if(turn===16){
-    bankAlert(15)
+    bankAlert(10)
     }
 if(turn===19){
     bankAlert(20)
@@ -105,7 +117,7 @@ for(let i=0;i<24;i++){
 //---------AddEventListener-----------------
 Xdesign.addEventListener("click",()=>{ //test for first lady.
     Xdesign.setAttribute("id","clicked")
-    turn+=1
+    turn++
 //randomized prizeMoney into the box
 XrngPrize = Math.floor((Math.random()*prizeMoney.length)) //rng and store it
 XgeneratedPrize=prizeMoney[XrngPrize] //store the generatedPrize
@@ -115,6 +127,7 @@ if(turn===1){
     yourPrize=XgeneratedPrize
     Xinner_design.innerText='You chose this box'
 }
+
 })
 
 
@@ -177,10 +190,9 @@ const intervalName = setInterval(counting,1000)
 prizeMoney.forEach((element)=>{
     const prizeBar = document.createElement("div")
     prizeBar.setAttribute("class","prizeBar")
-    prizeBar.innerHTML=`$${element.toLocaleString()}`
+    prizeBar.setAttribute("prizeBarInNumber",element)
+    prizeBar.innerText=`$${element.toLocaleString()}`
     sliderPrizePool.appendChild(prizeBar)
 })
-
-
 
 
