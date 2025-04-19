@@ -1,59 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Animated Box</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deal or No Deal</title>
   <style>
     body {
       margin: 0;
-      height: 100vh;
-      background: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-family: Arial, sans-serif;
+      background: url('https://media.giphy.com/media/l3vRnF1KpYQy3gUuk/giphy.gif') center center/cover no-repeat;
+      color: white;
+      overflow: hidden;
     }
-    .box {
-      width: 50px;
-      height: 50px;
-      background: royalblue;
+    .game {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .case {
+      background: gold;
+      color: black;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.5em;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .case:hover {
+      transform: scale(1.1);
+    }
+    .slider {
       position: absolute;
+      top: 0;
+      right: 0;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 20px;
+      width: 250px;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    .modal {
+      position: fixed;
       top: 50%;
-      transform: translateY(-50%);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #222;
+      padding: 30px;
+      border-radius: 10px;
+      display: none;
+      z-index: 10;
+    }
+    .modal button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1em;
     }
   </style>
 </head>
 <body>
-  <div class="box" id="box"></div>
-
+  <div class="game" id="game"></div>
+  <div class="slider">
+    <h2>Prize Pool</h2>
+    <ul id="prizeList"></ul>
+    <h2>Instructions</h2>
+    <p>Pick a case to be yours. Then open other cases to eliminate values. Occasionally, the banker will offer you a deal.</p>
+  </div>
+  <div class="modal" id="bankerModal">
+    <h2>Banker's Offer</h2>
+    <p id="offerAmount"></p>
+    <button onclick="acceptDeal()">Deal</button>
+    <button onclick="rejectDeal()">No Deal</button>
+  </div>
   <script>
-    const box = document.getElementById("box");
-    let position = 0;
-    let z;
+    const prizeValues = [0.01, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000];
+    const cases = [];
+    let playerCase = null;
+    let turns = 0;
 
-    function animate(x) {
-      if (z !== undefined) {
-        const delta = x - z; // How many milliseconds since last frame
-        const speed = 0.1; // pixels per millisecond
-        position += delta * speed;
-        box.style.left = position + "px";
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
       }
-      z = x;
-      requestAnimationFrame(animate);
     }
 
-    requestAnimationFrame(animate);
-  </script>
-</body>
-</html>
+    function generateCases() {
+      const shuffled = [...prizeValues];
+      shuffle(shuffled);
+      for (let i = 0; i < shuffled.length; i++) {
+        cases.push({ id: i + 1, value: shuffled[i], opened: false });
+      }
+    }
 
+    function renderCases() {
+      const game = document.getElementById('game');
+      game.innerHTML = '';
+      cases.forEach(c => {
+        const div = document.createElement('div');
+        div.className = 'case';
+        div.textContent = c.opened ? c.value : `Case ${c.id}`;
+        div.onclick = () => openCase(c.id);
+        game.appendChild(div);
+      });
+    }
+
+    function renderPrizeList() {
+      const prizeList = document.getElementById('prizeList');
+      prizeList.innerHTML = '';
+      prizeValues.forEach(p => {
+        const li = document.createElement('li');
+        li.textContent = `$${p}`;
+        prizeList.appendChild(li);
+      });
+    }
+
+    function openCase(id) {
+      if (playerCase === null) {
+        playerCase = id;
+        alert(`You selected Case ${id} as your own.`);
+        return;
+      }
+      const selected = cases.find(c => c.id === id);
+      if (selected.opened || selected.id === playerCase) return;
+      selected.opened = true;
+      alert(`You opened Case ${id} revealing $${selected.value}`);
+      turns++;
+      renderCases();
+      if (turns % 3 === 0) bankerOffer();
+    }
+
+    function bankerOffer() {
+      const remaining = cases.filter(c => !c.opened && c.id !== playerCase);
+      const avg = remaining.reduce((sum, c) => sum + c.value, 0) / remaining.length;
+      const offer = Math.round(avg * 0.9);
+      document.getElementById('offerAmount').textContent = `The banker offers: $${offer}`;
+      document.getElementById('bankerModal').style.display = 'block';
+    }
+
+    function acceptDeal() {
+      alert('You took the deal!');
+      document.getElementById('bankerModal').style.display = 'none';
+      endGame();
+    }
+
+    function rejectDeal() {
+      document.getElementById('bankerModal').style.display = 'none';
+    }
+
+    function endGame() {
+      const playerValue = cases.find(c => c.id === playerCase).value;
+      alert(`Your case had $${playerValue}`);
+      location.reload();
+    }
+
+    generateCases();
+    renderCases();
+    renderPrizeList();
+  </script>
 </body>
 </html>

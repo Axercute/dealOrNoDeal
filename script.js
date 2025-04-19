@@ -6,7 +6,7 @@ let dealerOffer;
 //----------------Cached-------------------
 lady = document.querySelector(".lady");
 Xinner_design = document.querySelector(".inner_design")
-Xdesign=document.querySelector(".design")
+Xdesign = document.querySelector(".design")
 
 
 //---------Display-------------------------
@@ -69,17 +69,6 @@ design.addEventListener("click",()=>{
 //--------------------same as the one outside----------------------------
 rngPrize = Math.floor((Math.random()*prizeMoney.length)) //rng and store it
 generatedPrize=prizeMoney[rngPrize] //store the generatedPrize
-
-if(turn>1){
-    const prizeBar = document.querySelectorAll(".prizeBar")
-    prizeBar.forEach((element)=>{
-        prizeBarInNumber=Number(element.getAttribute("prizeBarInNumber"))
-        if(prizeBarInNumber===Number(generatedPrize)){
-            // element.setAttribute("id","match")
-            console.log(`test`)
-        }
-    })}
-    
 inner_design.innerText=`$${generatedPrize.toLocaleString()}` //generating
 prizeMoney.splice(rngPrize,1) //use generated rng and remove that index
 
@@ -105,6 +94,14 @@ if(turn===22){
 if(turn===24){
     bankAlert(30)
     }
+
+const prizeBar = document.querySelectorAll(".prizeBar")
+prizeBar.forEach((element)=>{
+    if(element.innerText===inner_design.innerText){
+        element.setAttribute("id","match")
+    }
+})
+        
 })
 
 }
@@ -112,7 +109,6 @@ if(turn===24){
 for(let i=0;i<24;i++){
     createwholeSet()
 }
-
 
 //---------AddEventListener-----------------
 Xdesign.addEventListener("click",()=>{ //test for first lady.
@@ -127,6 +123,31 @@ if(turn===1){
     yourPrize=XgeneratedPrize
     Xinner_design.innerText='You chose this box'
 }
+if(turn===6){
+    bankAlert(10)
+    }
+if(turn===11){
+    bankAlert(10)
+    }
+if(turn===16){
+    bankAlert(10)
+    }
+if(turn===19){
+    bankAlert(20)
+    }
+if(turn===22){
+    bankAlert(20)
+    }
+if(turn===24){
+    bankAlert(30)
+    }
+
+const prizeBar = document.querySelectorAll(".prizeBar")
+prizeBar.forEach((element)=>{
+    if(element.innerText===Xinner_design.innerText){
+        element.setAttribute("id","match")
+    }
+})
 
 })
 
@@ -152,14 +173,17 @@ const timeBar = document.querySelector(".timeBar")
 const countDown = document.querySelector(".countDown")
 const offerPrize = document.querySelector("#offerPrize")
 const sliderDeal = document.querySelector(".sliderDeal")
+const transparentWall = document.querySelector(".transparentWall")
 
 function bankAlert(secondsInput){
+transparentWall.style.display="block"
 timeBar.style.width=`100%`;
 timeBar.style.backgroundColor=" rgb(0, 255, 0)"
 sliderDeal.style.display="block"
-dealerOffer=Math.round(prizeMoney.reduce((startElement,nextElement)=>{return (startElement+nextElement)/(prizeMoney.length+1)},yourPrize))
-offerPrize.innerHTML=`$${dealerOffer.toLocaleString()}`;
-countDown.innerHTML=secondsInput
+dealerOffer=prizeMoney.reduce((startElement,nextElement)=>{return (startElement+nextElement)/(prizeMoney.length+1)},yourPrize)
+dealerOffer=Math.round(dealerOffer/100*0.8)*100
+offerPrize.innerText=`$${dealerOffer.toLocaleString()}`;
+countDown.innerText=secondsInput
 let width=100;
 let timerStart=secondsInput
 function counting(){
@@ -180,6 +204,7 @@ function counting(){
     }
     if (width<=0){
         timeBar.style.width="0"
+        setTimeout(()=>{transparentWall.style.display="none"},1000)
         setTimeout(()=>{sliderDeal.style.display="none"},1000)
         clearInterval(intervalName)
     }
@@ -190,9 +215,9 @@ const intervalName = setInterval(counting,1000)
 prizeMoney.forEach((element)=>{
     const prizeBar = document.createElement("div")
     prizeBar.setAttribute("class","prizeBar")
-    prizeBar.setAttribute("prizeBarInNumber",element)
     prizeBar.innerText=`$${element.toLocaleString()}`
     sliderPrizePool.appendChild(prizeBar)
 })
+
 
 
