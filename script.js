@@ -151,23 +151,33 @@ prizeBar.forEach((element)=>{
 
 })
 
-
-
-//----------Slider----------------------
-const prizePool = document.querySelector(".prizePool")
+//----------Slider caches----------------------
+const navPrizePool = document.querySelector(".navPrizePool")
 const sliderPrizePool = document.querySelector(".sliderPrizePool")
-prizePool.addEventListener("click",()=>{
-sliderPrizePool.classList.toggle("sliderToggleIn")
-sliderHtp.classList.remove("sliderToggleIn")
+const navHtp = document.querySelector(".navHtp")
+const sliderHtp = document.querySelector(".sliderHtp")
+
+//---------Inputting prizeBar info------------
+prizeMoney.forEach((element)=>{
+    const prizeBar = document.createElement("div")
+    prizeBar.setAttribute("class","prizeBar")
+    prizeBar.innerText=`$${element.toLocaleString()}`
+    sliderPrizePool.appendChild(prizeBar)
 })
 
-const htp = document.querySelector(".htp")
-const sliderHtp = document.querySelector(".sliderHtp")
-htp.addEventListener("click",()=>{  
+//---------Event Listeners for nav Bars-------
+navHtp.addEventListener("click",()=>{  
 sliderHtp.classList.toggle("sliderToggleIn")
 sliderPrizePool.classList.remove("sliderToggleIn")
 })
 
+navPrizePool.addEventListener("click",()=>{
+sliderPrizePool.classList.toggle("sliderToggleIn")
+sliderHtp.classList.remove("sliderToggleIn")
+})
+//---------------------------------------------
+
+//bankAlert Notification cache
 const timer = document.querySelector(".timer")
 const timeBar = document.querySelector(".timeBar")
 const countDown = document.querySelector(".countDown")
@@ -175,6 +185,7 @@ const offerPrize = document.querySelector("#offerPrize")
 const sliderDeal = document.querySelector(".sliderDeal")
 const transparentWall = document.querySelector(".transparentWall")
 
+//----------function for the Bank Alert-----------------
 function bankAlert(secondsInput){
 transparentWall.style.display="block"
 timeBar.style.width=`100%`;
@@ -209,15 +220,20 @@ function counting(){
         clearInterval(intervalName)
     }
 }
+if(turn===24){
+offerPrize.style.fontSize="2.5rem"
+offerPrize.innerHTML="Exchange your very own case with <i>The Dealer</i>"
+}
 const intervalName = setInterval(counting,1000)
+//------------Event Listener for the button pressed------------
+const noDealButton = document.querySelector("#noDealButton")
+noDealButton.addEventListener("click", ()=>{
+    sliderDeal.style.display="none"
+    transparentWall.style.display="none"
+    clearInterval(intervalName)
+})
 }
 
-prizeMoney.forEach((element)=>{
-    const prizeBar = document.createElement("div")
-    prizeBar.setAttribute("class","prizeBar")
-    prizeBar.innerText=`$${element.toLocaleString()}`
-    sliderPrizePool.appendChild(prizeBar)
-})
 
 
 

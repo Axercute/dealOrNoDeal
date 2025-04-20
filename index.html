@@ -145,9 +145,10 @@
     border-radius: 1rem;
     border: solid;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
     transition: top 1s ease;
     }
 
@@ -166,21 +167,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;   
-    height: 6%;
-    background-color: rgba(255, 255, 255, 2);
+    width: 45%;   
+    height: 6.5%;
     border: 0.2rem solid;
-    margin-left: 2%;
-    margin-right: 2%;
-    margin-top: 0.5%;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 0.8%;
     margin-bottom: 0.5%;
-    font-size: 100%;
+    font-size: 150%;
     border-radius: 1rem;
+    box-shadow: 0 0 0.5rem 0.2rem yellow;
+    background-color: yellow;
+    transition: box-shadow 2s ease, background-color 2s ease;
+    font-family: "Bungee", sans-serif;
+    text-shadow:
+    1px -1px 0px white,
+    1px 1px 0px white; /* Simulates stroke effect */;
     }
 
 #match{
-    box-shadow: 0 0 0.5rem 0.2rem yellow;
-    background-color: yellow;
+    background-color: rgba(255, 255, 255, 2);
+    box-shadow: none
 }
 
     .sliderHtp{
@@ -255,19 +262,19 @@ button:hover{
     background-color:red ;
     cursor: pointer;
 }
-#deal{
+#dealButton{
 margin-right: 10%;
 margin-bottom: 5%;
 font-size: 150%;
 }
-#noDeal{
+#noDealButton{
     margin-left: 10%;
     font-size: 150%;
 }
-#deal:hover{
+#dealButton:hover{
     background-color: rgb(0, 255, 0);
 }
-#noDeal:hover{
+#noDealButton:hover{
     background-color:rgb(255, 6, 6); 
 }
 
@@ -314,10 +321,10 @@ font-size: 150%;
     <body>
     <div class="nav">
         <div class="menu">
-    <span class="home">Home</span>
-    <span class="prizePool">Prize Pool</span>
-    <span class="htp">How To Play</span>
-    <span class="sp">Super Powers</span>
+    <span class="home">Start New Game</span>
+    <span class="navPrizePool">Prize Pool</span>
+    <span class="navHtp">How To Play</span>
+    <span class="sp">Inventory & Spells</span>
         </div>
     </div>
 
@@ -370,8 +377,8 @@ font-size: 150%;
             <div class="timeBar"></div>
             <div class="countDown">10</div>
         </div>
-        <button class="bungee-regular" id="deal" style="color:rgb(221, 0, 255)">Deal</button>
-        <button class="bungee-regular" id="noDeal" style="color:rgb(221, 0, 255)">No Deal</button>
+        <button class="bungee-regular" id="dealButton" style="color:rgb(221, 0, 255)">Deal</button>
+        <button class="bungee-regular" id="noDealButton" style="color:rgb(221, 0, 255)">No Deal</button>
     </div>
 
     <video class="video-background" src="stage.mp4" loop autoplay muted></video>
