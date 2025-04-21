@@ -1,5 +1,6 @@
 let ladyRandom=["🫃","🫃🏻","🫃🏼","🫃🏽","🫃🏾","🫃🏿","🫄","🫄🏻","🫄🏼","🫄🏽","🫄🏿","🫄🏾"];
-let prizeMoney=[1,100,150,200,250,500,750,1000,1500,2000,2500,5000,7500,10000,15000,20000,25000,50000,75000,100000,150000,200000,250000,500000,1000000]
+let originalPrizeMoney=[1,100,150,200,250,500,750,1000,1500,2000,2500,5000,7500,10000,15000,20000,25000,50000,75000,100000,150000,200000,250000,500000,1000000]
+let prizeMoney=[...originalPrizeMoney]
 let turn = 0;
 let yourPrize;
 let dealerOffer;
@@ -307,8 +308,6 @@ function factoryReset(){
     const design=document.querySelectorAll(".design")
     design.forEach((element)=>{element.removeAttribute("id","clicked")})
     yourPrize=undefined;
-
-    
     const prizeBar = document.querySelectorAll(".prizeBar")
     prizeBar.forEach((element)=>{
         element.removeAttribute("id","match")
@@ -317,5 +316,8 @@ function factoryReset(){
     lady.forEach((element)=>{
         element.innerText=ladyRandom[Math.floor((Math.random()*ladyRandom.length))]
     })
-    
+    prizeMoney=[...originalPrizeMoney]
+    navInventory.innerText="Pick Your Case"
 }
+
+
