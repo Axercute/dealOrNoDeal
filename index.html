@@ -1,152 +1,152 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>𖢻Deal Or No Deal𖢻</title>
-        <!--Font for deal or no deal page-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
-        <script defer src="script.js"></script>
-        <style>
-    *{box-sizing: border-box;
-        margin: 0;
-    }
-    body{
-        background-color: #b7b7b7;
-        font-family: Arial, Helvetica, sans-serif;
-        overflow: hidden;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>𖢻Deal Or No Deal𖢻</title>
+<!--Font for deal or no deal page-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+<script defer src="script.js"></script>
+<style>
+*{box-sizing: border-box;
+    margin: 0;
+}
+body{
+    background-color: #b7b7b7;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
 
-    .nav{
-        background:linear-gradient(to right, #835099, #700074);
-        width: 100%;
-        position: sticky;
-        position: absolute;
-        top:0;
-        height: 50px;
-        z-index: 100;
-    }
-    .menu{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        font-family: "Bungee", sans-serif;
-    }
-    span:hover{
-        background-color: rgb(255, 0, 170);
-        cursor: pointer;
-    }
-    .menu span{
-        text-decoration: none;
-        font-size: 25px;
-        color: white;
-        line-height: 50px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+.nav{
+    background:linear-gradient(to right, #835099, #700074);
+    width: 100%;
+    position: sticky;
+    position: absolute;
+    top:0;
+    height: 50px;
+    z-index: 100;
+}
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: "Bungee", sans-serif;
+}
+span:hover{
+    background-color: rgb(255, 0, 170);
+    cursor: pointer;
+}
+.menu span{
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    line-height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
 
-    main{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-left: 25px;
-        margin-right: 25px;
-    }
-    .design:hover{
-        cursor: pointer;
-        transform: scale(1.1);
-        transition: transform 1s ease;
-    }
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.design:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 1s ease;
+}
 
-    .design:hover #button_design{
-        background-color: yellow;
-        transition: background-color 3s ease;
-    }
+.design:hover #button_design{
+    background-color: yellow;
+    transition: background-color 3s ease;
+}
 
 
-    .design{
-        display: grid;
-        grid-template-rows: 25% 50% 25%; 
-        width: 6rem;
-        height: 3.75rem;
-        z-index: 5;
-        position: absolute;
-    }
-    #row1_design{
-        background-color: black;
-    }
-    #row2_design{
-        background-color: rgb(174, 0, 255);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    #row3_design{
-        background-color: black
-    }
-    #button_design{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 1.8rem;
-        height: 1.8rem;
-        border-radius: 0.9rem;
-        border:solid black;
-        background-color: white;
-    }
-    .whole_set{
-        display: flex;
-        align-items: center;
-        margin-top: 35px;
-    }
-    .lady{
-        font-size: 7.5rem;
-        margin-left: -4.5rem;
-        margin-bottom: 4.6rem;
-        z-index: -1;
-        margin-right: -2rem;
-    }
-    .inner_design{
-        width: 6rem;
-        height: 3.75rem;
-        background: linear-gradient(to bottom, #09ff01, #138b01);
-        z-index: 0;
-        border: solid;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 0.9rem;
-        position: relative;
-        color:black;
-        text-align: center;
-        font-family: "Bungee", sans-serif;
-    }
-    .design#clicked{
+.design{
+    display: grid;
+    grid-template-rows: 25% 50% 25%;
+    width: 6rem;
+    height: 3.75rem;
+    z-index: 5;
+    position: absolute;
+}
+#row1_design{
+    background-color: black;
+}
+#row2_design{
+    background-color: rgb(174, 0, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#row3_design{
+    background-color: black
+}
+#button_design{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 0.9rem;
+    border:solid black;
+    background-color: white;
+}
+.whole_set{
+    display: flex;
+    align-items: center;
+    margin-top: 35px;
+}
+.lady{
+    font-size: 7.5rem;
+    margin-left: -4.5rem;
+    margin-bottom: 4.6rem;
+    z-index: -1;
+    margin-right: -2rem;
+}
+.inner_design{
+    width: 6rem;
+    height: 3.75rem;
+    background: linear-gradient(to bottom, #09ff01, #138b01);
+    z-index: 0;
+    border: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    position: relative;
+    color:black;
+    text-align: center;
+    font-family: "Bungee", sans-serif;
+}
+.design#clicked{
     opacity: 0;
     transition: transform 2s ease, opacity 5s ease;
     transform: translateY(50px);
     pointer-events: none;
+}
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Makes sure the video covers the entire screen */
+    z-index: -100; /* Keeps the video behind everything else */
     }
-    .video-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Makes sure the video covers the entire screen */
-        z-index: -100; /* Keeps the video behind everything else */
-        }
 
 
 
 
 
 
-    /*-----------------------------------Sliders-------------------------------------*/
-    .sliderPrizePool{
+/*-----------------------------------Sliders-------------------------------------*/
+.sliderPrizePool{
     transform: translate(-50%, -50%);
     top: 150%;
     left:50%;
@@ -164,20 +164,20 @@
     justify-content: flex-start;
     align-items: center;
     transition: top 1s ease;
-    }
+}
 
-    .sliderPrizePool.sliderToggleIn {
+.sliderPrizePool.sliderToggleIn {
     top: 53%;
-    }   
+}   
 
-    .sliderHtp.sliderToggleIn {
+.sliderHtp.sliderToggleIn {
     top: 53%;
-    } 
-    .sliderDeal.sliderToggleIn {
+} 
+.sliderInventory.sliderToggleIn {
     top: 53%;
-    } 
+} 
 
-    .prizeBar{
+.prizeBar{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -197,14 +197,14 @@
     text-shadow:
     1px -1px 0px white,
     1px 1px 0px white; /* Simulates stroke effect */;
-    }
+}
 
 #match{
     background-color: rgba(255, 255, 255, 2);
-    box-shadow: none
+    box-shadow: none;
 }
 
-    .sliderHtp{
+.sliderHtp{
     transform: translate(-50%, -50%);
     top: 150%;
     left:50%;
@@ -222,21 +222,21 @@
     justify-content:flex-start;
     transition: top 1s ease;
     text-align: center;
-    }
+}
 
-    h1{
-        margin-top: 5%;
-        font-size: 300%;
-        color:white;
-    }
-    p{
-        font-size: 125%;
-        text-align: left;
-        margin-left: 5%;
-        color: white;
-    }
+h1{
+    margin-top: 5%;
+    font-size: 300%;
+    color:white;
+}
+p{
+    font-size: 125%;
+    text-align: left;
+    margin-left: 5%;
+    color: white;
+}
 
-    .sliderDeal{
+.sliderDeal{
     transform: translate(-50%, -50%);
     top: 53%;
     left:50%;
@@ -251,13 +251,13 @@
     text-align: center;
     font-size: 150%;
     display: none;
-    }
+}
 
-    .bungee-regular {
-  font-family: "Bungee", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  text-shadow: -1px -1px 0px black,  
+.bungee-regular {
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: -1px -1px 0px black,  
     1px -1px 0px black,
     -1px 1px 0px black,
     1px 1px 0px black; /* Simulates stroke effect */;
@@ -277,9 +277,9 @@ button:hover{
     cursor: pointer;
 }
 #dealButton{
-margin-right: 10%;
-margin-bottom: 5%;
-font-size: 150%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+    font-size: 150%;
 }
 #noDealButton{
     margin-left: 10%;
@@ -330,72 +330,183 @@ font-size: 150%;
     top:0;
     display: none;
 }
-        </style>
-    </head>
-    <body>
-    <div class="nav">
-        <div class="menu">
-    <span class="home">Start New Game</span>
-    <span class="navPrizePool">Prize Pool</span>
-    <span class="navHtp">How To Play</span>
-    <span class="inventory">Pick Your Case</span>
-        </div>
+
+.sliderInventory{
+    transform: translate(-50%, -50%);
+    top: 150%;
+    left:50%;
+    position: fixed;
+    background: linear-gradient(to bottom, #ffce5c, #ff9500);
+    height: 90vh;
+    width: 40vw;
+    z-index: 21;
+    box-shadow: 0.5rem 0.5rem 1rem grey;
+    border-radius: 1rem;
+    border: solid;
+    display: grid;
+    grid-template-rows: 10% 10% 30% 10% auto;
+    transition: top 1s ease;
+    text-align: center;
+}
+
+.myCash{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: "Bungee", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    color:rgb(0, 212, 18);
+    font-size:2rem;
+    text-shadow: -1px -1px 0px black,  
+    1px -1px 0px black,
+    -1px 1px 0px black,
+    1px 1px 0px black; /* Simulates stroke effect */;
+    border-bottom: 1px solid black;
+}
+
+.myAchievements{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: "Bungee", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    color:rgb(204, 0, 255);
+    font-size:2rem;
+    text-shadow: -1px -1px 0px black,  
+    1px -1px 0px black,
+    -1px 1px 0px black,
+    1px 1px 0px black; /* Simulates stroke effect */;
+    border-bottom: 1px solid black;
+}
+.achievementContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.achievement{
+    font-family: "Bungee", sans-serif;
+    font-size:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(to right, #ffffffa4, #ffe7e7);
+    width:30%;
+    height:50px;
+    border-radius: 1rem;
+    border: solid black 0.1rem;
+    margin:0 0.5%;
+}
+.myAbilities{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: "Bungee", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    color:rgb(255, 59, 59);
+    font-size:2rem;
+    text-shadow: -1px -1px 0px black,  
+    1px -1px 0px black,
+    -1px 1px 0px black,
+    1px 1px 0px black; /* Simulates stroke effect */;
+    border-bottom: 1px solid black;
+}
+</style>
+</head>
+<body>
+<div class="nav">
+    <div class="menu">
+<span class="home">Start New Game</span>
+<span class="navPrizePool">Prize Pool</span>
+<span class="navHtp">How To Play</span>
+<span class="navInventory">Pick Your Case</span>
     </div>
+</div>
 
 
-    <main>
-        <div class="whole_set" id="hidden">
-            <div class="inner_design">$500,000</div>
-            <div class="design">
-                <div id="row1_design"></div>
-                <div id="row2_design">
-                    <div id="button_design">₿</div>
-                </div>
-                <div id="row3_design">
-                </div>
+<main>
+    <div class="whole_set" id="hidden">
+        <div class="inner_design">$500,000</div>
+        <div class="design">
+            <div id="row1_design"></div>
+            <div id="row2_design">
+                <div id="button_design">₿</div>
             </div>
-
-            <div class="lady"></div>
+            <div id="row3_design">
+            </div>
         </div>
 
-
-    </main>
-
-    <div class="sliderPrizePool"></div>
-
-    <div class="sliderHtp">
-        <h1>нσω тσ ρℓαу</h1>
-        <br>
-        <p>🎯Objective:</p>
-        <p>Walk away with the highest amount of money possible by making strategic choices and negotiating with the mysterious Banker.</p>
-        <br>
-        <p>1. At the start, 25 sealed briefcases are displayed (ranging from $1 to $1,000,000).</p>
-        <p>You pick one case to keep — it stays closed until the end of the game (unless you make a deal).</p>
-        <br>
-        <p>2. In rounds, you open a set number of the remaining cases to eliminate cash values from the board.</p>
-        <p>After each round, the Banker calls with a cash offer based on the remaining values.</p>
-        <br>
-        <p>3. After each Banker offer, you must decide:</p>
-        <p>Deal 💼: Accept the money offered and end the game.</p>
-        <p>No Deal ❌: Keep playing and open more cases.</p>
-        <br>
-        <p>4. Eventually, when there is one case left, you will face a choice</p>
-        <p>Stick with your original case or swap it for the last remaining one</p> 
-        <br>
-        <p>5. You will walk home with amount you made with your choice</p>
-    </div>
-    <div class="sliderDeal">
-        <h2 class="bungee-regular" style="color:yellow">💼Dealer's Offer💼</h2>
-        <h2 class="bungee-regular" id="offerPrize" style="color:rgb(6, 255, 27)">$200,000</h2>
-        <div class="timer">
-            <div class="timeBar"></div>
-            <div class="countDown">10</div>
-        </div>
-        <button class="bungee-regular" id="dealButton" style="color:rgb(221, 0, 255)">Deal</button>
-        <button class="bungee-regular" id="noDealButton" style="color:rgb(221, 0, 255)">No Deal</button>
+        <div class="lady"></div>
     </div>
 
-    <video class="video-background" src="stage.mp4" loop autoplay muted></video>
-    <div class="transparentWall"></div>
-    </body>
-    </html>
+
+</main>
+
+<div class="sliderPrizePool"></div>
+
+<div class="sliderHtp">
+    <h1>нσω тσ ρℓαу</h1>
+    <br>
+    <p>🎯Objective:</p>
+    <p>Walk away with the highest amount of money possible by making strategic choices and negotiating with the mysterious Banker.</p>
+    <br>
+    <p>1. At the start, 25 sealed briefcases are displayed (ranging from $1 to $1,000,000).</p>
+    <p>You pick one case to keep — it stays closed until the end of the game (unless you make a deal).</p>
+    <br>
+    <p>2. In rounds, you open a set number of the remaining cases to eliminate cash values from the board.</p>
+    <p>After each round, the Banker calls with a cash offer based on the remaining values.</p>
+    <br>
+    <p>3. After each Banker offer, you must decide:</p>
+    <p>Deal 💼: Accept the money offered and end the game.</p>
+    <p>No Deal ❌: Keep playing and open more cases.</p>
+    <br>
+    <p>4. Eventually, when there is one case left, you will face a choice</p>
+    <p>Stick with your original case or swap it for the last remaining one</p> 
+    <br>
+    <p>5. You will walk home with amount you made with your choice</p>
+</div>
+
+<div class="sliderDeal">
+    <h2 class="bungee-regular" style="color:yellow">💼Dealer's Offer💼</h2>
+    <h2 class="bungee-regular" id="offerPrize" style="color:rgb(6, 255, 27)">$200,000</h2>
+    <div class="timer">
+        <div class="timeBar"></div>
+        <div class="countDown">10</div>
+    </div>
+    <button class="bungee-regular" id="dealButton" style="color:rgb(221, 0, 255)">Deal</button>
+    <button class="bungee-regular" id="noDealButton" style="color:rgb(221, 0, 255)">No Deal</button>
+</div>
+
+<div class="sliderInventory sliderToggleIn">
+    <div class="myCash">My Cash: $200,000</div>
+    <div class="myAchievements">My Achievements</div>
+    <div class="achievementContainer">
+        <div class="achievement">🍟Fries in the bag</div>
+        <div class="achievement">💪Halfllionaire</div>
+        <div class="achievement">🦾Millionaire</div>
+        <div class="achievement">🧎$1 Street Lover</div>
+        <div class="achievement">💸The Million Dollar Deal</div>
+        <div class="achievement">🎁$1 or Mystery Gift?</div>
+        <div class="achievement">🤵Rags to Riches</div>
+        <div class="achievement">🥴I AM ADDICTED</div>
+    </div>
+    <div class="myAbilities">My Abilities</div>
+    <div class="abilitiesContainer">?</div>
+</div>
+
+<video class="video-background" src="stage.mp4" loop autoplay muted></video>
+<div class="transparentWall"></div>
+</body>
+</html>

@@ -157,6 +157,8 @@ const navPrizePool = document.querySelector(".navPrizePool")
 const sliderPrizePool = document.querySelector(".sliderPrizePool")
 const navHtp = document.querySelector(".navHtp")
 const sliderHtp = document.querySelector(".sliderHtp")
+const navInventory = document.querySelector(".navInventory")
+const sliderInventory = document.querySelector(".sliderInventory")
 
 //---------Inputting prizeBar info------------
 prizeMoney.forEach((element)=>{
@@ -168,14 +170,24 @@ prizeMoney.forEach((element)=>{
 
 //---------Event Listeners for nav Bars-------
 navHtp.addEventListener("click",()=>{  
-sliderHtp.classList.toggle("sliderToggleIn")
-sliderPrizePool.classList.remove("sliderToggleIn")
+    sliderHtp.classList.toggle("sliderToggleIn")
+    sliderPrizePool.classList.remove("sliderToggleIn")
+    sliderInventory.classList.remove("sliderToggleIn")
 })
 
 navPrizePool.addEventListener("click",()=>{
-sliderPrizePool.classList.toggle("sliderToggleIn")
-sliderHtp.classList.remove("sliderToggleIn")
+    sliderPrizePool.classList.toggle("sliderToggleIn")
+    sliderHtp.classList.remove("sliderToggleIn")
+    sliderInventory.classList.remove("sliderToggleIn")
 })
+
+navInventory.addEventListener("click",()=>{
+    sliderInventory.classList.toggle("sliderToggleIn")
+    sliderPrizePool.classList.remove("sliderToggleIn")
+    sliderHtp.classList.remove("sliderToggleIn")
+})
+
+
 //---------------------------------------------
 
 //bankAlert Notification cache
@@ -237,7 +249,7 @@ noDealButton.addEventListener("click", ()=>{
 
 
 function inventoryUpdate() {
-const inventory = document.querySelector(".inventory")
+const navInventory = document.querySelector(".navInventory")
 if(turn<0){
     howMany=6;
 }
@@ -261,9 +273,9 @@ else if(turn<24){
 }
 
 if(turn>0){
-inventory.innerText=`Pick ${howMany-turn} cases`
+navInventory.innerText=`Pick ${howMany-turn} cases`
     if((howMany-turn)<=1){
-        inventory.innerText=`Pick ${howMany-turn} case`
+        navInventory.innerText=`Pick ${howMany-turn} case`
     }
 }
 requestAnimationFrame(inventoryUpdate)
