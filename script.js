@@ -262,6 +262,9 @@ else if(turn<24){
 
 if(turn>0){
 inventory.innerText=`Pick ${howMany-turn} cases`
+    if((howMany-turn)<=1){
+        inventory.innerText=`Pick ${howMany-turn} case`
+    }
 }
 requestAnimationFrame(inventoryUpdate)
 }
