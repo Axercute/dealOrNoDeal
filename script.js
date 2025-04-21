@@ -65,8 +65,8 @@ lady.innerText=ladyRandom[Math.floor((Math.random()*ladyRandom.length))]
 design.after(lady)
 //--------------------same as the one outside----------------------------
 design.addEventListener("click",()=>{ 
-    design.setAttribute("id","clicked")
-    turn++
+design.setAttribute("id","clicked")
+turn++
 //--------------------same as the one outside----------------------------
 rngPrize = Math.floor((Math.random()*prizeMoney.length)) //rng and store it
 generatedPrize=prizeMoney[rngPrize] //store the generatedPrize
@@ -113,8 +113,8 @@ for(let i=0;i<24;i++){
 
 //---------AddEventListener-----------------
 Xdesign.addEventListener("click",()=>{ //test for first lady.
-    Xdesign.setAttribute("id","clicked")
-    turn++
+Xdesign.setAttribute("id","clicked")
+turn++
 //randomized prizeMoney into the box
 XrngPrize = Math.floor((Math.random()*prizeMoney.length)) //rng and store it
 XgeneratedPrize=prizeMoney[XrngPrize] //store the generatedPrize
@@ -236,5 +236,35 @@ noDealButton.addEventListener("click", ()=>{
 }
 
 
+function inventoryUpdate() {
+const inventory = document.querySelector(".inventory")
+if(turn<0){
+    howMany=6;
+}
+else if(turn<6){
+    howMany=6;
+}
+else if(turn<11){
+    howMany=11;
+}
+else if(turn<16){
+    howMany=16;
+}
+else if(turn<19){
+    howMany=19;
+}
+else if(turn<22){
+    howMany=22;
+}
+else if(turn<24){
+    howMany=24;
+}
 
+if(turn>0){
+inventory.innerText=`Pick ${howMany-turn} cases`
+}
+requestAnimationFrame(inventoryUpdate)
+}
+
+requestAnimationFrame(inventoryUpdate)
 
