@@ -56,9 +56,14 @@
     .design:hover{
         cursor: pointer;
         transform: scale(1.1);
-        transform-origin: center bottom;
-        background-color: red;
+        transition: transform 1s ease;
     }
+
+    .design:hover #button_design{
+        background-color: yellow;
+        transition: background-color 3s ease;
+    }
+
 
     .design{
         display: grid;
@@ -69,22 +74,26 @@
         position: absolute;
     }
     #row1_design{
-        background-color: brown;
+        background-color: black;
     }
     #row2_design{
-        background-color: white;
+        background-color: rgb(174, 0, 255);
         display: flex;
         justify-content: center;
         align-items: center;
     }
     #row3_design{
-        background-color: brown;
+        background-color: black
     }
     #button_design{
-        width: 1rem;
-        height: 1rem;
-        border-radius: 0.5rem;
-        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 0.9rem;
+        border:solid black;
+        background-color: white;
     }
     .whole_set{
         display: flex;
@@ -100,21 +109,23 @@
     .inner_design{
         width: 6rem;
         height: 3.75rem;
-        background-color: pink;
+        background: linear-gradient(to bottom, #09ff01, #138b01);
         z-index: 0;
         border: solid;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 1rem;
+        font-size: 0.9rem;
         position: relative;
         color:black;
         text-align: center;
+        font-family: "Bungee", sans-serif;
     }
     .design#clicked{
-    transition: 0.5s;
-    transform: rotateX(180deg);
-    z-index: -5;
+    opacity: 0;
+    transition: transform 2s ease, opacity 5s ease;
+    transform: translateY(50px);
+    pointer-events: none;
     }
     .video-background {
         position: absolute;
@@ -335,7 +346,7 @@ font-size: 150%;
             <div class="design">
                 <div id="row1_design"></div>
                 <div id="row2_design">
-                    <div id="button_design"></div>
+                    <div id="button_design">₿</div>
                 </div>
                 <div id="row3_design">
                 </div>

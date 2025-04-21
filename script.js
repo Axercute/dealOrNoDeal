@@ -1,5 +1,5 @@
 let ladyRandom=["🫃","🫃🏻","🫃🏼","🫃🏽","🫃🏾","🫃🏿","🫄","🫄🏻","🫄🏼","🫄🏽","🫄🏿","🫄🏾"];
-let prizeMoney=[1,5,10,15,30,50,75,100,150,250,500,1000,1500,3000,5000,7500,10000,15000,25000,50000,100000,150000,300000,500000,1000000]
+let prizeMoney=[1,100,150,200,250,500,750,1000,1500,2000,2500,5000,7500,10000,15000,20000,25000,50000,75000,100000,150000,200000,250000,500000,1000000]
 let turn = 0;
 let yourPrize;
 let dealerOffer;
@@ -52,6 +52,7 @@ design.appendChild(row2_design)
 
 const button_design = document.createElement("div")
 button_design.setAttribute("id","button_design")
+button_design.innerText="₿"
 row2_design.appendChild(button_design)
 
 const row3_design=document.createElement("div")
@@ -191,8 +192,8 @@ transparentWall.style.display="block"
 timeBar.style.width=`100%`;
 timeBar.style.backgroundColor=" rgb(0, 255, 0)"
 sliderDeal.style.display="block"
-dealerOffer=prizeMoney.reduce((startElement,nextElement)=>{return (startElement+nextElement)/(prizeMoney.length+1)},yourPrize)
-dealerOffer=Math.round(dealerOffer/100*0.8)*100
+dealerOffer=prizeMoney.reduce((startElement,nextElement)=>{return (startElement+nextElement)},yourPrize)
+dealerOffer=Math.round((dealerOffer/100*0.9)/(prizeMoney.length+1))*100
 offerPrize.innerText=`$${dealerOffer.toLocaleString()}`;
 countDown.innerText=secondsInput
 let width=100;
