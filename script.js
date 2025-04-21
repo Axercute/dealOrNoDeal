@@ -3,6 +3,7 @@ let prizeMoney=[1,100,150,200,250,500,750,1000,1500,2000,2500,5000,7500,10000,15
 let turn = 0;
 let yourPrize;
 let dealerOffer;
+let myCash=250000;
 //----------------Cached-------------------
 lady = document.querySelector(".lady");
 Xinner_design = document.querySelector(".inner_design")
@@ -245,6 +246,18 @@ noDealButton.addEventListener("click", ()=>{
     transparentWall.style.display="none"
     clearInterval(intervalName)
 })
+
+const dealButton = document.querySelector("#dealButton")
+dealButton.addEventListener("click", ()=>{
+    sliderDeal.style.display="none"
+    transparentWall.style.display="none"
+    clearInterval(intervalName)
+    myCash=myCash+dealerOffer;
+    const displayCash = document.querySelector(".displayCash")
+    displayCash.innerText=`My Cash: $${myCash.toLocaleString()}`
+    factoryReset()
+})
+
 }
 
 
@@ -283,3 +296,26 @@ requestAnimationFrame(inventoryUpdate)
 
 requestAnimationFrame(inventoryUpdate)
 
+//js runs like a normal function, it only run once
+const displayCash = document.querySelector(".displayCash")
+displayCash.innerText=`My Cash: $${myCash.toLocaleString()}`
+
+//Factory reset
+function factoryReset(){
+    turn=0;
+    Xdesign.removeAttribute("id","clicked")
+    const design=document.querySelectorAll(".design")
+    design.forEach((element)=>{element.removeAttribute("id","clicked")})
+    yourPrize=undefined;
+
+    
+    const prizeBar = document.querySelectorAll(".prizeBar")
+    prizeBar.forEach((element)=>{
+        element.removeAttribute("id","match")
+    })
+    lady = document.querySelectorAll(".lady")
+    lady.forEach((element)=>{
+        element.innerText=ladyRandom[Math.floor((Math.random()*ladyRandom.length))]
+    })
+    
+}

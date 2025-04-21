@@ -349,7 +349,7 @@ button:hover{
     text-align: center;
 }
 
-.myCash{
+.displayCash{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -405,7 +405,11 @@ button:hover{
     border-radius: 1rem;
     border: solid black 0.1rem;
     margin:0.8% 0.5%;
+    position: relative;
+    cursor: pointer;
 }
+
+
 .myAbilities{
     display: flex;
     flex-direction: column;
@@ -490,10 +494,10 @@ button:hover{
 </div>
 
 <div class="sliderInventory sliderToggleIn">
-    <div class="myCash">My Cash: $200,000</div>
+    <div class="displayCash"></div>
     <div class="myAchievements">My Achievements</div>
     <div class="achievementContainer">
-        <div class="achievement">🍟Fries in the bag</div>
+        <div class="achievement" instruction="Accept the dealer's offer for over your entry price">🍟Fries in the bag</div>
         <div class="achievement">💪Halfllionaire</div>
         <div class="achievement">🦾Millionaire</div>
         <div class="achievement">🧎$1 Street Lover</div>
