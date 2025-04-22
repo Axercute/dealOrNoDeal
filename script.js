@@ -253,7 +253,7 @@ dealButton.addEventListener("click", ()=>{
     sliderDeal.style.display="none"
     transparentWall.style.display="none"
     clearInterval(intervalName)
-    myCash=myCash+dealerOffer;
+    myCash+=dealerOffer;
     const displayCash = document.querySelector(".displayCash")
     displayCash.innerText=`My Cash: $${myCash.toLocaleString()}`
     factoryReset()
@@ -318,6 +318,7 @@ function factoryReset(){
     })
     prizeMoney=[...originalPrizeMoney]
     navInventory.innerText="Pick Your Case"
+    dealerOffer=0;
 }
 
 
