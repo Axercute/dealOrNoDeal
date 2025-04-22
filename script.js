@@ -234,10 +234,20 @@ function counting(){
         setTimeout(()=>{sliderDeal.style.display="none"},1000)
         clearInterval(intervalName)
     }
+
+    if (width<=0){
+        sliderDeal.style.display="none"
+        transparentWall.style.display="none"
+        myCash+=yourPrize;
+        const displayCash = document.querySelector(".displayCash")
+        displayCash.innerText=`My Cash: $${myCash.toLocaleString()}`
+        clearInterval(intervalName)
+        factoryReset()
+    }
 }
 if(turn===24){
-offerPrize.style.fontSize="2.5rem"
-offerPrize.innerHTML="Exchange your very own case with <i>The Dealer</i>"
+    offerPrize.style.fontSize="2.5rem"
+    offerPrize.innerHTML="Exchange your very own case with <i>The Dealer</i>"
 }
 const intervalName = setInterval(counting,1000)
 //------------Event Listener for the button pressed------------
@@ -246,16 +256,33 @@ noDealButton.addEventListener("click", ()=>{
     sliderDeal.style.display="none"
     transparentWall.style.display="none"
     clearInterval(intervalName)
+
+    //----------THis is only for last round, rest is not included----
+    if(turn===24){
+    myCash+=yourPrize;
+    const displayCash = document.querySelector(".displayCash")
+    displayCash.innerText=`My Cash: $${myCash.toLocaleString()}`
+    clearInterval(intervalName)
+    factoryReset()
+    }
+    //---------------------------------------------------------------
 })
 
 const dealButton = document.querySelector("#dealButton")
 dealButton.addEventListener("click", ()=>{
     sliderDeal.style.display="none"
     transparentWall.style.display="none"
-    clearInterval(intervalName)
-    myCash+=dealerOffer;
+    //------------Only changing display on our displayCash and adding to myCash--------
+    if(turn===24){
+    myCash+=prizeMoney[0];
+    }
+    else{
+        myCash+=dealerOffer;
+    }
+    //------------------------------------------------------------------
     const displayCash = document.querySelector(".displayCash")
     displayCash.innerText=`My Cash: $${myCash.toLocaleString()}`
+    clearInterval(intervalName)
     factoryReset()
 })
 
@@ -319,6 +346,14 @@ function factoryReset(){
     prizeMoney=[...originalPrizeMoney]
     navInventory.innerText="Pick Your Case"
     dealerOffer=0;
+    offerPrize.style.fontSize="300%"
 }
 
+//---------------Hiding all slider when body is clicked-------------
+const main = document.querySelector(".main");
+main.addEventListener("click", () => {
+    sliderPrizePool.classList.remove("sliderToggleIn");
+    sliderInventory.classList.remove("sliderToggleIn");
+    sliderHtp.classList.remove("sliderToggleIn");
+});
 
