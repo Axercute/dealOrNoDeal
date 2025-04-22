@@ -356,4 +356,3 @@ main.addEventListener("click", () => {
     sliderInventory.classList.remove("sliderToggleIn");
     sliderHtp.classList.remove("sliderToggleIn");
 });
-

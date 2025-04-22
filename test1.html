@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
    <style>
     body{
         height: 100vh;
@@ -76,6 +77,10 @@ timeBar.style.transition="10s linear" //this is to set 10s time to reduce width 
 requestAnimationFrame(()=>{timeBar.style.width="0"})
 
 //you can combine them into a function , both the transition and the reduceTime, you can do it!:)
+
+
+  let allPossibilities = math.combinations(49, 6);
+  console.log(allPossibilities); // 13983816
 </script>
 </body>
 </html>
