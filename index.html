@@ -17,6 +17,7 @@ body{
     background-color: #b7b7b7;
     font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
+    margin-top: 150px;
 }
 
 .nav{
@@ -76,6 +77,7 @@ main{
     z-index: 5;
     position: absolute;
     transition: transform 2s ease;
+    margin-bottom: -4rem;
 }
 #row1_design{
     background-color: black;
@@ -102,12 +104,12 @@ main{
 .whole_set{
     display: flex;
     align-items: center;
-    margin-top: 35px;
+    margin-top: 10px;
 }
 .lady{
     font-size: 7.5rem;
     margin-left: -4.5rem;
-    margin-bottom: 4.6rem;
+    margin-bottom: 1rem;
     z-index: -1;
     margin-right: -2rem;
 }
@@ -125,6 +127,7 @@ main{
     color:black;
     text-align: center;
     font-family: "Bungee", sans-serif;
+    margin-bottom: -4rem;
 }
 .design#clicked{
     opacity: 0;
@@ -177,6 +180,9 @@ main{
 } 
 .sliderInventory.sliderToggleIn {
     top: 53%;
+} 
+.sliderNotification.sliderToggleIn {
+    top: 50px;
 } 
 
 .prizeBar{
@@ -429,15 +435,39 @@ button:hover{
     1px 1px 0px black; /* Simulates stroke effect */;
     border-bottom: 1px solid black;
 }
+
+.sliderNotification{
+    transform: translate(-50%, 0%);
+    top: -100px;
+    left:50%;
+    height: 7.5rem;
+    position: absolute;
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(111, 111, 111));
+    width: 40vw;
+    box-shadow: 0.5rem 0.5rem 1rem grey;
+    border-radius: 1rem;
+    border: solid;
+    text-align: center;
+    font-size: 150%;
+    transition:top 1s ease;
+}
+
+#entryPrize{
+    font-size: 250%;
+}
+
+#message{
+    margin-top: 0.3rem;
+}
 </style>
 </head>
 <body>
 <div class="nav">
     <div class="menu">
-<span class="home">Start New Game</span>
+<span class="navStartGame">Start New Game</span>
 <span class="navPrizePool">Prize Pool</span>
 <span class="navHtp">How To Play</span>
-<span class="navInventory">Pick Your Case</span>
+<span class="navInventory">Inventory</span>
     </div>
 </div>
 
@@ -510,6 +540,11 @@ button:hover{
     </div>
     <div class="myAbilities">My Abilities</div>
     <div class="abilitiesContainer">?</div>
+</div>
+
+<div class="sliderNotification">
+    <h2 class="bungee-regular" style="color:rgba(229, 255, 0, 0.958)" id="instruction">💼Notification💼</h2>
+    <h2 class="bungee-regular" style="color:rgb(217, 0, 255)" id="message">Pick Your Case</h2>
 </div>
 
 <video class="video-background" src="stage.mp4" loop autoplay muted></video>

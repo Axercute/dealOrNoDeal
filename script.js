@@ -151,7 +151,6 @@ prizeBar.forEach((element)=>{
         element.setAttribute("id","match")
     }
 })
-
 })
 
 //----------Slider caches----------------------
@@ -161,6 +160,7 @@ const navHtp = document.querySelector(".navHtp")
 const sliderHtp = document.querySelector(".sliderHtp")
 const navInventory = document.querySelector(".navInventory")
 const sliderInventory = document.querySelector(".sliderInventory")
+const sliderNotification = document.querySelector(".sliderNotification")
 
 //---------Inputting prizeBar info------------
 prizeMoney.forEach((element)=>{
@@ -234,15 +234,16 @@ function counting(){
         setTimeout(()=>{sliderDeal.style.display="none"},1000)
         clearInterval(intervalName)
     }
-
-    if (width<=0){
-        sliderDeal.style.display="none"
-        transparentWall.style.display="none"
-        myCash+=yourPrize;
-        const displayCash = document.querySelector(".displayCash")
-        displayCash.innerText=`My Cash: $${myCash.toLocaleString()}`
-        clearInterval(intervalName)
-        factoryReset()
+    if(turn===24){
+        if (width<=0){
+            sliderDeal.style.display="none"
+            transparentWall.style.display="none"
+            myCash+=yourPrize;
+            const displayCash = document.querySelector(".displayCash")
+            displayCash.innerText=`My Cash: $${myCash.toLocaleString()}`
+            clearInterval(intervalName)
+            factoryReset()
+        }
     }
 }
 if(turn===24){
@@ -257,15 +258,15 @@ noDealButton.addEventListener("click", ()=>{
     transparentWall.style.display="none"
     clearInterval(intervalName)
 
-    //----------THis is only for last round, rest is not included----
-    if(turn===24){
+//----------THis is only for last round, rest is not included----
+if(turn===24){
     myCash+=yourPrize;
     const displayCash = document.querySelector(".displayCash")
     displayCash.innerText=`My Cash: $${myCash.toLocaleString()}`
     clearInterval(intervalName)
     factoryReset()
-    }
-    //---------------------------------------------------------------
+}
+//---------------------------------------------------------------
 })
 
 const dealButton = document.querySelector("#dealButton")
@@ -289,8 +290,8 @@ dealButton.addEventListener("click", ()=>{
 }
 
 
-function inventoryUpdate() {
-const navInventory = document.querySelector(".navInventory")
+function messageUpdate() {
+const message = document.querySelector("#message")
 if(turn<0){
     howMany=6;
 }
@@ -314,15 +315,16 @@ else if(turn<24){
 }
 
 if(turn>0){
-navInventory.innerText=`Pick ${howMany-turn} cases`
+    message.innerText=`Pick ${howMany-turn} cases`
     if((howMany-turn)<=1){
-        navInventory.innerText=`Pick ${howMany-turn} case`
+        message.innerText=`Pick ${howMany-turn} case`
     }
+    
 }
-requestAnimationFrame(inventoryUpdate)
+requestAnimationFrame(messageUpdate)
 }
 
-requestAnimationFrame(inventoryUpdate)
+requestAnimationFrame(messageUpdate)
 
 //js runs like a normal function, it only run once
 const displayCash = document.querySelector(".displayCash")
@@ -344,15 +346,28 @@ function factoryReset(){
         element.innerText=ladyRandom[Math.floor((Math.random()*ladyRandom.length))]
     })
     prizeMoney=[...originalPrizeMoney]
-    navInventory.innerText="Pick Your Case"
+    message.innerText="Pick Your Case"
     dealerOffer=0;
     offerPrize.style.fontSize="300%"
 }
-
 //---------------Hiding all slider when body is clicked-------------
+let kaixa=0
+function AFK (){
 const main = document.querySelector(".main");
 main.addEventListener("click", () => {
     sliderPrizePool.classList.remove("sliderToggleIn");
     sliderInventory.classList.remove("sliderToggleIn");
     sliderHtp.classList.remove("sliderToggleIn");
+    kaixa=0;
 });
+if(kaixa>5000){
+sliderNotification.classList.remove("sliderToggleIn")
+}
+if(kaixa===0){
+sliderNotification.classList.add("sliderToggleIn") 
+}
+kaixa+=16
+requestAnimationFrame(AFK)
+}
+requestAnimationFrame(AFK)
+
