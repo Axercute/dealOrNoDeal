@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,139 +11,153 @@
 <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
 <script defer src="script.js"></script>
 <style>
-*{box-sizing: border-box;
-    margin: 0;
-}
-body{
-    background-color: #b7b7b7;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
-    margin-top: 150px;
-}
+    * {
+        box-sizing: border-box;
+        margin: 0;
+    }
 
-.nav{
-    background:linear-gradient(to right, #835099, #700074);
-    width: 100%;
-    position: sticky;
-    position: absolute;
-    top:0;
-    height: 50px;
-    z-index: 100;
-}
-.menu{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    font-family: "Bungee", sans-serif;
-}
-span:hover{
-    background-color: rgb(255, 0, 170);
-    cursor: pointer;
-}
-.menu span{
-    text-decoration: none;
-    font-size: 25px;
-    color: white;
-    line-height: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
+    body {
+        background-color: #b7b7b7;
+        font-family: Arial, Helvetica, sans-serif;
+        overflow: hidden;
+        margin-top: 150px;
+    }
 
-main{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-left: 25px;
-    margin-right: 25px;
-    margin:0;
-}
-.design:hover{
-    cursor: pointer;
-    transform: scale(1.1);
-    transition: transform 1s ease;
-}
+    .nav {
+        background: linear-gradient(to right, #835099, #700074);
+        width: 100%;
+        position: sticky;
+        position: absolute;
+        top: 0;
+        height: 50px;
+        z-index: 100;
+    }
 
-.design:hover #button_design{
-    background-color: yellow;
-    transition: background-color 3s ease;
-}
+    .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-family: "Bungee", sans-serif;
+    }
+
+    span:hover {
+        background-color: rgb(255, 0, 170);
+        cursor: pointer;
+    }
+
+    .menu span {
+        text-decoration: none;
+        font-size: 25px;
+        color: white;
+        line-height: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .design:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: transform 1s ease;
+    }
+
+    .design:hover #button_design {
+        background-color: yellow;
+        transition: background-color 3s ease;
+    }
 
 
-.design{
-    display: grid;
-    grid-template-rows: 25% 50% 25%;
-    width: 6rem;
-    height: 3.75rem;
-    z-index: 5;
-    position: absolute;
-    transition: transform 2s ease;
-    margin-bottom: -4rem;
-}
-#row1_design{
-    background-color: black;
-}
-#row2_design{
-    background-color: rgb(174, 0, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#row3_design{
-    background-color: black
-}
-#button_design{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.8rem;
-    height: 1.8rem;
-    border-radius: 0.9rem;
-    border:solid black;
-    background-color: white;
-}
-.whole_set{
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-.lady{
-    font-size: 7.5rem;
-    margin-left: -4.5rem;
-    margin-bottom: 1rem;
-    z-index: -1;
-    margin-right: -2rem;
-}
-.inner_design{
-    width: 6rem;
-    height: 3.75rem;
-    background: linear-gradient(to bottom, #09ff01, #138b01);
-    z-index: 0;
-    border: solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.9rem;
-    position: relative;
-    color:black;
-    text-align: center;
-    font-family: "Bungee", sans-serif;
-    margin-bottom: -4rem;
-}
-.design#clicked{
-    opacity: 0;
-    transition: transform 2s ease, opacity 5s ease;
-    transform: translateY(50px);
-    pointer-events: none;
-}
-.video-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Makes sure the video covers the entire screen */
-    z-index: -100; /* Keeps the video behind everything else */
+    .design {
+        display: grid;
+        grid-template-rows: 25% 50% 25%;
+        width: 6rem;
+        height: 3.75rem;
+        z-index: 5;
+        position: absolute;
+        transition: transform 2s ease;
+        margin-bottom: -4rem;
+    }
+
+    #row1_design {
+        background-color: black;
+    }
+
+    #row2_design {
+        background-color: rgb(174, 0, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #row3_design {
+        background-color: black
+    }
+
+    #button_design {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 0.9rem;
+        border: solid black;
+        background-color: white;
+    }
+
+    .whole_set {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .lady {
+        font-size: 7.5rem;
+        margin-left: -4.5rem;
+        margin-bottom: 1rem;
+        z-index: -1;
+        margin-right: -2rem;
+    }
+
+    .inner_design {
+        width: 6rem;
+        height: 3.75rem;
+        background: linear-gradient(to bottom, #09ff01, #138b01);
+        z-index: 0;
+        border: solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.9rem;
+        position: relative;
+        color: black;
+        text-align: center;
+        font-family: "Bungee", sans-serif;
+        margin-bottom: -4rem;
+    }
+
+    .design#clicked {
+        opacity: 0;
+        transition: transform 2s ease, opacity 5s ease;
+        transform: translateY(50px);
+        pointer-events: none;
+    }
+
+    .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Makes sure the video covers the entire screen */
+        z-index: -100;
+        /* Keeps the video behind everything else */
     }
 
 
@@ -150,327 +165,392 @@ main{
 
 
 
-/*-----------------------------------Sliders-------------------------------------*/
-.sliderPrizePool{
-    transform: translate(-50%, -50%);
-    top: 150%;
-    left:50%;
-    position: fixed;
-    background: linear-gradient(to bottom, #b39ddb, #7a4a8b);
-    height: 90vh;
-    width: 40vw;
-    z-index: 21;
-    box-shadow: 0.5rem 0.5rem 1rem grey;
-    border-radius: 1rem;
-    border: solid;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    transition: top 1s ease;
-}
+    /*-----------------------------------Sliders-------------------------------------*/
+    .sliderPrizePool {
+        transform: translate(-50%, -50%);
+        top: 150%;
+        left: 50%;
+        position: fixed;
+        background: linear-gradient(to bottom, #b39ddb, #7a4a8b);
+        height: 90vh;
+        width: 40vw;
+        z-index: 21;
+        box-shadow: 0.5rem 0.5rem 1rem grey;
+        border-radius: 1rem;
+        border: solid;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        transition: top 1s ease;
+    }
 
-.sliderPrizePool.sliderToggleIn {
-    top: 53%;
-}   
+    .sliderPrizePool.sliderToggleIn {
+        top: 53%;
+    }
 
-.sliderHtp.sliderToggleIn {
-    top: 53%;
-} 
-.sliderInventory.sliderToggleIn {
-    top: 53%;
-} 
-.sliderNotification.sliderToggleIn {
-    top: 50px;
-} 
+    .sliderHtp.sliderToggleIn {
+        top: 53%;
+    }
 
-.prizeBar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 45%;   
-    height: 6.5%;
-    border: 0.2rem solid;
-    margin-left: 3%;
-    margin-right: 3%;
-    margin-top: 0.8%;
-    margin-bottom: 0.5%;
-    font-size: 150%;
-    border-radius: 1rem;
-    box-shadow: 0 0 0.5rem 0.2rem yellow;
-    background-color: yellow;
-    transition: box-shadow 2s ease, background-color 2s ease;
-    font-family: "Bungee", sans-serif;
-    text-shadow:
-    1px -1px 0px white,
-    1px 1px 0px white; /* Simulates stroke effect */;
-}
+    .sliderInventory.sliderToggleIn {
+        top: 53%;
+    }
 
-#match{
-    background-color: rgba(255, 255, 255, 2);
-    box-shadow: none;
-}
+    .sliderNotification.sliderToggleIn {
+        top: 50px;
+    }
 
-.sliderHtp{
-    transform: translate(-50%, -50%);
-    top: 150%;
-    left:50%;
-    position: fixed;
-    background: linear-gradient(to bottom, #ff01b7, #ac036b);
-    height: 90vh;
-    width: 40vw;
-    z-index: 21;
-    box-shadow: 0.5rem 0.5rem 1rem grey;
-    border-radius: 1rem;
-    border: solid;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content:flex-start;
-    transition: top 1s ease;
-    text-align: center;
-}
+    .sliderStartNewGame.sliderToggleIn{
+        top: 53%;
+    }
 
-h1{
-    margin-top: 5%;
-    font-size: 300%;
-    color:white;
-}
-p{
-    font-size: 125%;
-    text-align: left;
-    margin-left: 5%;
-    color: white;
-}
+    .prizeBar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45%;
+        height: 6.5%;
+        border: 0.2rem solid;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 0.8%;
+        margin-bottom: 0.5%;
+        font-size: 150%;
+        border-radius: 1rem;
+        box-shadow: 0 0 0.5rem 0.2rem yellow;
+        background-color: yellow;
+        transition: box-shadow 2s ease, background-color 2s ease;
+        font-family: "Bungee", sans-serif;
+        text-shadow:
+            1px -1px 0px white,
+            1px 1px 0px white;
+        /* Simulates stroke effect */
+        ;
+    }
 
-.sliderDeal{
-    transform: translate(-50%, -50%);
-    top: 53%;
-    left:50%;
-    position: fixed;
-    background: linear-gradient(to bottom, rgba(255, 0, 225), rgb(174, 0, 255));
-    height: 40vh;
-    width: 40vw;
-    z-index: 20;
-    box-shadow: 0.5rem 0.5rem 1rem grey;
-    border-radius: 1rem;
-    border: solid;
-    text-align: center;
-    font-size: 150%;
-    display: none;
-}
+    #match {
+        background-color: rgba(255, 255, 255, 2);
+        box-shadow: none;
+    }
 
-.bungee-regular {
-    font-family: "Bungee", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    text-shadow: -1px -1px 0px black,  
-    1px -1px 0px black,
-    -1px 1px 0px black,
-    1px 1px 0px black; /* Simulates stroke effect */;
-}
+    .sliderHtp {
+        transform: translate(-50%, -50%);
+        top: 150%;
+        left: 50%;
+        position: fixed;
+        background: linear-gradient(to bottom, #ff01b7, #ac036b);
+        height: 90vh;
+        width: 40vw;
+        z-index: 21;
+        box-shadow: 0.5rem 0.5rem 1rem grey;
+        border-radius: 1rem;
+        border: solid;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        transition: top 1s ease;
+        text-align: center;
+    }
 
-#offerPrize{
-    font-size: 300%;
-}
-button{
-    font-size: 150%;
-    border-radius: 1rem;
-    padding: 0.3rem;
-    margin-top: 2%;
-}
-button:hover{
-    background-color:red ;
-    cursor: pointer;
-}
-#dealButton{
-    margin-right: 10%;
-    margin-bottom: 5%;
-    font-size: 150%;
-}
-#noDealButton{
-    margin-left: 10%;
-    font-size: 150%;
-}
-#dealButton:hover{
-    background-color: rgb(0, 255, 0);
-}
-#noDealButton:hover{
-    background-color:rgb(255, 6, 6); 
-}
+    h1 {
+        margin-top: 5%;
+        font-size: 300%;
+        color: white;
+    }
 
-.timer{
-    height: 10%;
-    width: 90%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border: solid;
-    margin: auto;
-    border-radius: 1rem;
-    font-size: 80%;
-    background-color: white;
-    overflow: hidden;
-    position: relative;
-}
+    p {
+        font-size: 125%;
+        text-align: left;
+        margin-left: 5%;
+        color: white;
+    }
 
-.timeBar{
-    background-color: rgb(9, 255, 9);
-    width: 100%;
-    height: 100%;
-    transition: 0.2s width linear;
-}
-.countDown{
-    font-size: 100%;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-    position: absolute;
-}
-.transparentWall{
-    background-color: rgba(0, 0, 0, 0.3);
-    z-index: 19;
-    width: 100vw;   
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top:0;
-    display: none;
-}
+    .sliderDeal {
+        transform: translate(-50%, -50%);
+        top: 53%;
+        left: 50%;
+        position: fixed;
+        background: linear-gradient(to bottom, rgba(255, 0, 225), rgb(174, 0, 255));
+        height: 40vh;
+        width: 40vw;
+        z-index: 20;
+        box-shadow: 0.5rem 0.5rem 1rem grey;
+        border-radius: 1rem;
+        border: solid;
+        text-align: center;
+        font-size: 150%;
+        display: none;
+    }
 
-.sliderInventory{
-    transform: translate(-50%, -50%);
-    top: 150%;
-    left:50%;
-    position: fixed;
-    background: linear-gradient(to bottom, #ffce5c, #ff9500);
-    height: 90vh;
-    width: 40vw;
-    z-index: 21;
-    box-shadow: 0.5rem 0.5rem 1rem grey;
-    border-radius: 1rem;
-    border: solid;
-    display: grid;
-    grid-template-rows: 10% 10% 40% 10% auto;
-    transition: top 1s ease;
-    text-align: center;
-}
+    .bungee-regular {
+        font-family: "Bungee", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-shadow: -1px -1px 0px black,
+            1px -1px 0px black,
+            -1px 1px 0px black,
+            1px 1px 0px black;
+        /* Simulates stroke effect */
+        ;
+    }
 
-.displayCash{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    font-family: "Bungee", sans-serif;
-    font-weight: 200;
-    font-style: normal;
-    color:rgb(0, 212, 18);
-    font-size:2rem;
-    text-shadow: -1px -1px 0px black,  
-    1px -1px 0px black,
-    -1px 1px 0px black,
-    1px 1px 0px black; /* Simulates stroke effect */;
-    border-bottom: 1px solid black;
-}
+    #offerPrize {
+        font-size: 300%;
+    }
 
-.myAchievements{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    font-family: "Bungee", sans-serif;
-    font-weight: 200;
-    font-style: normal;
-    color:rgb(204, 0, 255);
-    font-size:2rem;
-    text-shadow: -1px -1px 0px black,  
-    1px -1px 0px black,
-    -1px 1px 0px black,
-    1px 1px 0px black; /* Simulates stroke effect */;
-    border-bottom: 1px solid black;
-}
-.achievementContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    border-bottom: 1px solid black;
-}
+    button {
+        font-size: 150%;
+        border-radius: 1rem;
+        padding: 0.3rem;
+        margin-top: 2%;
+    }
 
-.achievement{
-    font-family: "Bungee", sans-serif;
-    font-size:125%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background:linear-gradient(to right, #ffffffa4, #ffe7e7);
-    width:45%;
-    height:50px;
-    border-radius: 1rem;
-    border: solid black 0.1rem;
-    margin:0.8% 0.5%;
-    position: relative;
-    cursor: pointer;
-}
+    button:hover {
+        background-color: red;
+        cursor: pointer;
+    }
+
+    #dealButton {
+        margin-right: 10%;
+        margin-bottom: 5%;
+        font-size: 150%;
+    }
+
+    #noDealButton {
+        margin-left: 10%;
+        font-size: 150%;
+    }
+
+    #dealButton:hover {
+        background-color: rgb(0, 255, 0);
+    }
+
+    #noDealButton:hover {
+        background-color: rgb(255, 6, 6);
+    }
+
+    .timer {
+        height: 10%;
+        width: 90%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border: solid;
+        margin: auto;
+        border-radius: 1rem;
+        font-size: 80%;
+        background-color: white;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .timeBar {
+        background-color: rgb(9, 255, 9);
+        width: 100%;
+        height: 100%;
+        transition: 0.2s width linear;
+    }
+
+    .countDown {
+        font-size: 100%;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        position: absolute;
+    }
+
+    .transparentWall {
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 19;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+
+    .sliderInventory {
+        transform: translate(-50%, -50%);
+        top: 150%;
+        left: 50%;
+        position: fixed;
+        background: linear-gradient(to bottom, #ffce5c, #ff9500);
+        height: 90vh;
+        width: 40vw;
+        z-index: 21;
+        box-shadow: 0.5rem 0.5rem 1rem grey;
+        border-radius: 1rem;
+        border: solid;
+        display: grid;
+        grid-template-rows: 10% 10% 40% 10% auto;
+        transition: top 1s ease;
+        text-align: center;
+    }
+
+    .displayCash {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        font-family: "Bungee", sans-serif;
+        font-weight: 200;
+        font-style: normal;
+        color: rgb(0, 212, 18);
+        font-size: 2rem;
+        text-shadow: -1px -1px 0px black,
+            1px -1px 0px black,
+            -1px 1px 0px black,
+            1px 1px 0px black;
+        /* Simulates stroke effect */
+        ;
+        border-bottom: 1px solid black;
+    }
+
+    .myAchievements {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        font-family: "Bungee", sans-serif;
+        font-weight: 200;
+        font-style: normal;
+        color: rgb(204, 0, 255);
+        font-size: 2rem;
+        text-shadow: -1px -1px 0px black,
+            1px -1px 0px black,
+            -1px 1px 0px black,
+            1px 1px 0px black;
+        /* Simulates stroke effect */
+        ;
+        border-bottom: 1px solid black;
+    }
+
+    .achievementContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        border-bottom: 1px solid black;
+    }
+
+    .achievement {
+        font-family: "Bungee", sans-serif;
+        font-size: 125%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, #ffffffa4, #ffe7e7);
+        width: 45%;
+        height: 50px;
+        border-radius: 1rem;
+        border: solid black 0.1rem;
+        margin: 0.8% 0.5%;
+        position: relative;
+        cursor: pointer;
+    }
 
 
-.myAbilities{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    font-family: "Bungee", sans-serif;
-    font-weight: 200;
-    font-style: normal;
-    color:rgb(255, 59, 59);
-    font-size:2rem;
-    text-shadow: -1px -1px 0px black,  
-    1px -1px 0px black,
-    -1px 1px 0px black,
-    1px 1px 0px black; /* Simulates stroke effect */;
-    border-bottom: 1px solid black;
-}
+    .myAbilities {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        font-family: "Bungee", sans-serif;
+        font-weight: 200;
+        font-style: normal;
+        color: rgb(255, 59, 59);
+        font-size: 2rem;
+        text-shadow: -1px -1px 0px black,
+            1px -1px 0px black,
+            -1px 1px 0px black,
+            1px 1px 0px black;
+        /* Simulates stroke effect */
+        ;
+        border-bottom: 1px solid black;
+    }
 
-.sliderNotification{
-    transform: translate(-50%, 0%);
-    top: -100px;
-    left:50%;
-    height: 7.5rem;
-    position: absolute;
-    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(111, 111, 111));
-    width: 40vw;
-    box-shadow: 0.5rem 0.5rem 1rem grey;
-    border-radius: 1rem;
-    border: solid;
-    text-align: center;
-    font-size: 150%;
-    transition:top 1s ease;
-}
+    .sliderNotification {
+        transform: translate(-50%, 0%);
+        top: -100px;
+        left: 50%;
+        height: 7.5rem;
+        position: absolute;
+        background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(111, 111, 111));
+        width: 40vw;
+        box-shadow: 0.5rem 0.5rem 1rem grey;
+        border-radius: 1rem;
+        border: solid;
+        text-align: center;
+        font-size: 150%;
+        transition: top 1s ease;
+    }
 
-#entryPrize{
-    font-size: 250%;
-}
+    #message {
+        margin-top: 0.3rem;
+    }
 
-#message{
-    margin-top: 0.3rem;
-}
+    .sliderStartNewGame{
+        transform: translate(-50%, -50%);
+        top: 150%;
+        left: 50%;
+        position: fixed;
+        background: linear-gradient(to bottom, rgb(255, 0, 208), rgb(143, 0, 121));
+        height: 40vh;
+        width: 40vw;
+        z-index: 20;
+        box-shadow: 0.5rem 0.5rem 1rem grey;
+        border-radius: 1rem;
+        border: solid;
+        text-align: center;
+        font-size: 150%;
+        transition: top 1s ease;
+    }
+
+    #yesButton {
+        margin-right: 10%;
+        margin-bottom: 5%;
+        font-size: 150%;
+        padding: 1.5%;
+    }
+
+    #noButton {
+        margin-left: 10%;
+        font-size: 150%;
+        padding: 1.5%;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    #yesButton:hover {
+        background-color: rgb(0, 255, 0);
+    }
+
+    #noButton:hover {
+        background-color: rgb(255, 6, 6);
+    }
+
+    #entryPrice {
+        font-size: 300%;
+    }
 </style>
 </head>
+
 <body>
 <div class="nav">
     <div class="menu">
-<span class="navStartGame">Start New Game</span>
-<span class="navPrizePool">Prize Pool</span>
-<span class="navHtp">How To Play</span>
-<span class="navInventory">Inventory</span>
+        <span class="navStartNewGame">Start New Game</span>
+        <span class="navPrizePool">Prize Pool</span>
+        <span class="navHtp">How To Play</span>
+        <span class="navInventory">Inventory</span>
     </div>
 </div>
-
 
 <main class="main">
     <div class="whole_set" id="hidden">
@@ -486,9 +566,8 @@ button:hover{
 
         <div class="lady"></div>
     </div>
-
-
 </main>
+
 
 <div class="sliderPrizePool"></div>
 
@@ -496,7 +575,8 @@ button:hover{
     <h1>нσω тσ ρℓαу</h1>
     <br>
     <p>🎯Objective:</p>
-    <p>Walk away with the highest amount of money possible by making strategic choices and negotiating with the mysterious Banker.</p>
+    <p>Walk away with the highest amount of money possible by making strategic choices and negotiating with the
+        mysterious Banker.</p>
     <br>
     <p>1. At the start, 25 sealed briefcases are displayed (ranging from $1 to $1,000,000).</p>
     <p>You pick one case to keep — it stays closed until the end of the game (unless you make a deal).</p>
@@ -509,7 +589,7 @@ button:hover{
     <p>No Deal ❌: Keep playing and open more cases.</p>
     <br>
     <p>4. Eventually, when there is one case left, you will face a choice</p>
-    <p>Stick with your original case or swap it for the last remaining one</p> 
+    <p>Stick with your original case or swap it for the last remaining one</p>
     <br>
     <p>5. You will walk home with amount you made with your choice</p>
 </div>
@@ -529,7 +609,8 @@ button:hover{
     <div class="displayCash"></div>
     <div class="myAchievements">My Achievements</div>
     <div class="achievementContainer">
-        <div class="achievement" instruction="Accept the dealer's offer for over your entry price">🍟Fries in the bag</div>
+        <div class="achievement" instruction="Accept the dealer's offer for over your entry price">🍟Fries in the
+            bag</div>
         <div class="achievement">💪Halfllionaire</div>
         <div class="achievement">🦾Millionaire</div>
         <div class="achievement">🧎$1 Street Lover</div>
@@ -544,11 +625,21 @@ button:hover{
 
 <div class="sliderNotification">
     <h2 class="bungee-regular" style="color:rgba(229, 255, 0, 0.958)" id="instruction">💼Notification💼</h2>
-    <h2 class="bungee-regular" style="color:rgb(217, 0, 255)" id="message">Pick Your Case</h2>
+    <h2 class="bungee-regular" style="color:rgb(217, 0, 255)" id="message">Click Start New Game</h2>
+</div>
+
+<div class="sliderStartNewGame">
+    <h2 class="bungee-regular" style="color:rgba(255, 255, 255, 0.958)">💼The entry fee is💼</h2>
+    <h2 class="bungee-regular" id="entryPrice" style="color:rgb(0, 255, 0)">$200,000</h2>
+    <h2 class="bungee-regular" id="remark" style="color:rgba(255, 255, 255, 0.958)">Would you like to proceed?</h2>
+    <button class="bungee-regular" id="yesButton" style="color:rgb(221, 0, 255)">Yes</button>
+    <button class="bungee-regular" id="noButton" style="color:rgb(221, 0, 255)">No</button>
+    </div>
 </div>
 
 <video class="video-background" src="stage.mp4" loop autoplay muted></video>
 <div class="transparentWall"></div>
 
 </body>
+
 </html>
