@@ -369,6 +369,7 @@
         offerPrize.style.fontSize="300%"
         transparentWall.style.display="block"
         sliderStartNewGame.classList.toggle("sliderToggleIn")
+        navstartNewGame.style.pointerEvents = "auto";
     }
     //---------------Hiding all slider when body is clicked-------------
     let faiz=0
@@ -402,16 +403,14 @@
     entryPriceAmount=Math.round(entryPriceAmount/originalPrizeMoney.length/100)*100
     entryPrice.innerHTML=`$${entryPriceAmount.toLocaleString()}`
 
-        navstartNewGame.addEventListener("click",()=>{  
-            if(turn===0){
-                sliderStartNewGame.classList.toggle("sliderToggleIn")
-                sliderHtp.classList.remove("sliderToggleIn")
-                sliderPrizePool.classList.remove("sliderToggleIn")
-                sliderInventory.classList.remove("sliderToggleIn")
-            }
+    navstartNewGame.addEventListener("click",()=>{  
+        if(turn===0){
+            sliderStartNewGame.classList.toggle("sliderToggleIn")
+            sliderHtp.classList.remove("sliderToggleIn")
+            sliderPrizePool.classList.remove("sliderToggleIn")
+            sliderInventory.classList.remove("sliderToggleIn")
         }
-    )
-
+    })
 
     noButton.addEventListener("click",()=>{ 
         sliderStartNewGame.classList.toggle("sliderToggleIn")
@@ -424,6 +423,7 @@
         displayCash.innerText=`My Cash: $${myCash.toLocaleString()}`
         transparentWall.style.display="none"
         message.innerHTML="Pick your own case"
+        navstartNewGame.style.pointerEvents = "none";
         }
         else{
                transparentWall.style.display="block"
