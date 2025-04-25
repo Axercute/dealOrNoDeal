@@ -239,11 +239,14 @@
             setTimeout(()=>{transparentWall.style.display="none"},1000)
             setTimeout(()=>{sliderDeal.style.display="none"},1000)
             clearInterval(intervalName)
+            if(turn===24){
+                setTimeout(()=>{transparentWall.style.display="block"},1000)
+            }
         }
         if(turn===24){
             if (width<=0){
                 sliderDeal.style.display="none"
-                transparentWall.style.display="none"
+                transparentWall.style.display="block"
                 myCash+=yourPrize;
                 const displayCash = document.querySelector(".displayCash")
                 displayCash.innerText=`My Cash: $${myCash.toLocaleString()}`
