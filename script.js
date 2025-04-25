@@ -423,6 +423,7 @@
         myCash-=entryPriceAmount;
         displayCash.innerText=`My Cash: $${myCash.toLocaleString()}`
         transparentWall.style.display="none"
+        message.innerHTML="Pick your own case"
         }
         else{
                transparentWall.style.display="block"
