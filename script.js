@@ -424,6 +424,7 @@
         transparentWall.style.display="none"
         message.innerHTML="Pick your own case"
         navstartNewGame.style.pointerEvents = "none";
+        faiz=0
         }
         else{
                transparentWall.style.display="block"
