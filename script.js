@@ -477,9 +477,10 @@
         achievement5.setAttribute("id","achievementComplete")
         }
         //----------achievement6------------
-        // if(prizeBar.innerText.trim() === "$1"){
+        if(prizeBar.innerText.trim() === "$1"){
         // achievement6.setAttribute("id","achievementComplete")
-        // }
+        console.log(`test`)
+        }
         //----------achievement7------------
         if(myCash>=5000000){
         achievement7.setAttribute("id","achievementComplete")
