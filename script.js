@@ -457,7 +457,7 @@
 
     function checkAchievement(){
         //----------achievement1------------
-        if(outcomeDeal>entryPriceAmount){
+        if(outcomeDeal>entryPriceAmount || outcomeNoDeal>entryPriceAmount){
         achievement1.setAttribute("id","achievementComplete")
         }
         //----------achievement2------------
@@ -477,9 +477,9 @@
         achievement5.setAttribute("id","achievementComplete")
         }
         //----------achievement6------------
-        if(prizeBar.innerText.trim() === "$1"){
-        achievement6.setAttribute("id","achievementComplete")
-        }
+        // if(prizeBar.innerText.trim() === "$1"){
+        // achievement6.setAttribute("id","achievementComplete")
+        // }
         //----------achievement7------------
         if(myCash>=5000000){
         achievement7.setAttribute("id","achievementComplete")
@@ -492,3 +492,4 @@
     }
 
     requestAnimationFrame(checkAchievement)
+    sliderHtp.classList.toggle("sliderToggleIn")
