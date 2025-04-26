@@ -374,7 +374,7 @@
 
     .sliderInventory {
         transform: translate(-50%, -50%);
-        top: 150%;
+        top: 53%;
         left: 50%;
         position: fixed;
         background: linear-gradient(to bottom, #ffce5c, #ff9500);
@@ -439,13 +439,13 @@
         border-bottom: 1px solid black;
     }
 
-    .achievement {
+    .achievementBar {
         font-family: "Bungee", sans-serif;
         font-size: 125%;
         display: flex;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(to right, #ffffffa4, #ffe7e7);
+        background-color: rgb(255, 213, 213);
         width: 45%;
         height: 50px;
         border-radius: 1rem;
@@ -455,7 +455,11 @@
         cursor: pointer;
     }
 
-
+    #achievementComplete{
+        box-shadow: 0 0 0.5rem 0.2rem rgb(0, 255, 42);
+        background-color: rgb(26, 255, 0);
+    }
+    
     .myAbilities {
         display: flex;
         flex-direction: column;
@@ -474,6 +478,10 @@
         /* Simulates stroke effect */
         ;
         border-bottom: 1px solid black;
+    }
+
+    .abilitiesContainer {
+        display:flex;
     }
 
     .sliderNotification {
@@ -539,6 +547,7 @@
     #entryPrice {
         font-size: 300%;
     }
+
 </style>
 </head>
 
@@ -609,18 +618,22 @@
     <div class="displayCash"></div>
     <div class="myAchievements">My Achievements</div>
     <div class="achievementContainer">
-        <div class="achievement" instruction="Accept the dealer's offer for over your entry price">🍟Fries in the
+        <div class="achievementBar" instruction="Accept the dealer's offer for over your entry price">🍟Fries in the
             bag</div>
-        <div class="achievement">💪Halfllionaire</div>
-        <div class="achievement">🦾Millionaire</div>
-        <div class="achievement">🧎$1 Street Lover</div>
-        <div class="achievement">💸One Million Dollar</div>
-        <div class="achievement">🎁$1 or Mystery Gift?</div>
-        <div class="achievement">🤵Rags to Riches</div>
-        <div class="achievement">🥴I AM ADDICTED</div>
+        <div class="achievementBar" id="achievementComplete">💪Halfllionaire</div>
+        <div class="achievementBar">🦾Millionaire</div>
+        <div class="achievementBar">🧎$1 Street Lover</div>
+        <div class="achievementBar">💸One Million Dollar</div>
+        <div class="achievementBar">🎁$1 or Mystery Gift?</div>
+        <div class="achievementBar">🤵Rags to Riches</div>
+        <div class="achievementBar">🥴I AM ADDICTED</div>
     </div>
     <div class="myAbilities">My Abilities</div>
-    <div class="abilitiesContainer">?</div>
+    <div class="abilitiesContainer">
+        <div class="eagleEye"></div>
+        <div class="mouthAcid"></div>
+        <div class="eagleEyeUpgrade"></div>
+    </div>
 </div>
 
 <div class="sliderNotification">
