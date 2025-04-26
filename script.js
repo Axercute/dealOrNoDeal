@@ -115,7 +115,7 @@
         createwholeSet()
     }
 
-    
+
     //---------AddEventListener-----------------
     Xdesign.addEventListener("click",()=>{ //test for first lady.
     Xdesign.setAttribute("id","clicked")
@@ -444,3 +444,51 @@
         sliderStartNewGame.classList.remove("sliderToggleIn")
         faiz=0
     });
+
+
+    achievement1=document.querySelector("#achievement1")
+    achievement2=document.querySelector("#achievement2")
+    achievement3=document.querySelector("#achievement3")
+    achievement4=document.querySelector("#achievement4")
+    achievement5=document.querySelector("#achievement5")
+    achievement6=document.querySelector("#achievement6")
+    achievement7=document.querySelector("#achievement7")
+    achievement8=document.querySelector("#achievement8")
+
+    function checkAchievement(){
+        //----------achievement1------------
+        if(outcomeDeal>entryPriceAmount){
+        achievement1.setAttribute("id","achievementComplete")
+        }
+        //----------achievement2------------
+        if(myCash>=500000){
+        achievement2.setAttribute("id","achievementComplete")
+        }
+        //----------achievement3------------
+        if(myCash>=1000000){
+        achievement3.setAttribute("id","achievementComplete")
+        }
+        //----------achievement4------------
+        if(outcomeNoDeal===1 || outcomeDeal===1){
+        achievement4.setAttribute("id","achievementComplete")
+        }
+        //----------achievement5------------
+        if(outcomeNoDeal===1000000 || outcomeDeal===1000000){
+        achievement5.setAttribute("id","achievementComplete")
+        }
+        //----------achievement6------------
+        if(prizeBar.innerText.trim() === "$1"){
+        achievement6.setAttribute("id","achievementComplete")
+        }
+        //----------achievement7------------
+        if(myCash>=5000000){
+        achievement7.setAttribute("id","achievementComplete")
+        }
+        //----------achievement8------------
+        if(myCash>=10000000){
+        achievement8.setAttribute("id","achievementComplete")
+        }
+    requestAnimationFrame(checkAchievement)
+    }
+
+    requestAnimationFrame(checkAchievement)

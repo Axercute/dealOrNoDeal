@@ -374,7 +374,7 @@
 
     .sliderInventory {
         transform: translate(-50%, -50%);
-        top: 160%;
+        top: 150%;
         left: 50%;
         position: fixed;
         background: linear-gradient(to bottom, #ffce5c, #ff9500);
@@ -452,7 +452,29 @@
         border: solid black 0.1rem;
         margin: 0.8% 0.5%;
         position: relative;
-        cursor: pointer;
+        cursor:help
+    }
+
+    .achievementBar::after{
+        content:attr(achievementInstruction);
+        position:absolute;
+        top:0%;
+        opacity: 0;
+        background-color: rgb(255, 0, 136);
+        width: 105%;
+        transition: top 1s ease;
+    }
+
+    .achievementBar:hover::after{
+        top:100%;
+        opacity:1;
+        z-index:1;
+        border-radius: 1rem;
+    }
+
+    .achievementBar:hover{
+        box-shadow: 0 0 0.5rem 0.2rem rgb(224, 236, 45);
+        background-color: rgb(208, 255, 0);
     }
 
     #achievementComplete{
@@ -618,16 +640,14 @@
     <div class="displayCash"></div>
     <div class="myAchievements">My Achievements</div>
     <div class="achievementContainer">
-        <div class="achievementBar">🍟Fries in the bag
-            <div class="test"></div>
-        </div>
-        <div class="achievementBar" id="achievementComplete">💪Halfllionaire</div>
-        <div class="achievementBar">🦾Millionaire</div>
-        <div class="achievementBar">🧎$1 Street Lover</div>
-        <div class="achievementBar">💸One Million Dollar</div>
-        <div class="achievementBar">🎁$1 or Mystery Gift?</div>
-        <div class="achievementBar">🤵Rags to Riches</div>
-        <div class="achievementBar">🥴I AM ADDICTED.</div>
+        <div class="achievementBar" achievementInstruction="Accept the dealer's offer for over your entry price" id="achievement1">🍟Fries in the bag</div>
+        <div class="achievementBar" achievementInstruction="Make $500,000 in your inventory" id="achievement2">💪Halfllionaire</div>
+        <div class="achievementBar" achievementInstruction="Make $1,000,000 in your inventory" id="achievement3">🦾Millionaire</div>
+        <div class="achievementBar" achievementInstruction="$1 Street Lover, Get a $1 case in the end" id="achievement4">🧎$1 Street Lover</div>
+        <div class="achievementBar" achievementInstruction="Pick a $1,000,000 case in the end" id="achievement5">💸One Million Dollar</div>
+        <div class="achievementBar" achievementInstruction="Get in a scenario when you are left with a choice between $1 and $1,000,000" id="achievement6">🎁$1 or Mystery Gift?</div>
+        <div class="achievementBar" achievementInstruction="Make $5,000,000 in your inventory" id="achievement7">🤵Rags to Riches</div>
+        <div class="achievementBar" achievementInstruction="Make $10,000,000 in your inventory" id="achievement8">🥴I AM ADDICTED.</div>
     </div>
     <div class="myAbilities">My Abilities</div>
     <div class="abilitiesContainer">
