@@ -7,6 +7,9 @@
     let myCash=250000;
     let outcomeDeal;
     let outcomeNoDeal;
+    let mode="classic";
+    let currentPrizeMoney;
+
     //----------------Cached-------------------
     lady = document.querySelector(".lady");
     Xinner_design = document.querySelector(".inner_design")
@@ -369,11 +372,11 @@
         lady.forEach((element)=>{
             element.innerText=ladyRandom[Math.floor((Math.random()*ladyRandom.length))]
         })
-        prizeMoney=[...originalPrizeMoney]
         offerPrize.style.fontSize="300%"
         transparentWall.style.display="block"
         sliderStartNewGame.classList.toggle("sliderToggleIn")
         navstartNewGame.style.pointerEvents = "auto";
+        prizeMoney=[...originalPrizeMoney]
     }
     //---------------Hiding all slider when body is clicked-------------
     let faiz=0
@@ -403,8 +406,8 @@
     const yesButton = document.querySelector("#yesButton")
     const noButton = document.querySelector("#noButton")
     const entryPrice = document.querySelector("#entryPrice")
-    let entryPriceAmount = originalPrizeMoney.reduce((startElement,nextElement)=>{return (startElement+nextElement)},0)
-    entryPriceAmount=Math.round(entryPriceAmount/originalPrizeMoney.length/100)*100
+    let entryPriceAmount = prizeMoney.reduce((startElement,nextElement)=>{return (startElement+nextElement)},0)
+    entryPriceAmount=Math.round(entryPriceAmount/prizeMoney.length/100)*100
     entryPrice.innerHTML=`$${entryPriceAmount.toLocaleString()}`
 
     navstartNewGame.addEventListener("click",()=>{  
@@ -468,29 +471,95 @@
         if(myCash>=1000000){
         achievement3.setAttribute("id","achievementComplete")
         }
-        //----------achievement4------------
-        if(outcomeNoDeal===1 || outcomeDeal===1){
-        achievement4.setAttribute("id","achievementComplete")
-        }
-        //----------achievement5------------
-        if(outcomeNoDeal===1000000 || outcomeDeal===1000000){
-        achievement5.setAttribute("id","achievementComplete")
-        }
         //----------achievement6------------
-        if(prizeBar.innerText.trim() === "$1"){
-        // achievement6.setAttribute("id","achievementComplete")
-        console.log(`test`)
-        }
-        //----------achievement7------------
         if(myCash>=5000000){
+            achievement6.setAttribute("id","achievementComplete")
+            }
+        //----------achievement7------------
+        if(outcomeNoDeal===1 || outcomeDeal===1){
         achievement7.setAttribute("id","achievementComplete")
         }
         //----------achievement8------------
-        if(myCash>=10000000){
+        if(outcomeNoDeal===1000000 || outcomeDeal===1000000){
         achievement8.setAttribute("id","achievementComplete")
+        }
+        //----------achievement6------------
+
+
+        //----------achievement11------------
+        if(myCash>=20000000){
+        achievement11.setAttribute("id","achievementComplete")
+        }
+        //----------achievement12------------
+        if(myCash>=100000000){
+        achievement12.setAttribute("id","achievementComplete")
         }
     requestAnimationFrame(checkAchievement)
     }
 
     requestAnimationFrame(checkAchievement)
     sliderHtp.classList.toggle("sliderToggleIn")
+
+    //---------------All for modes here------------
+    modeClassic = document.querySelector("#modeClassic");
+    modeTriple = document.querySelector("#modeTriple");
+    modeRoyal = document.querySelector("#modeRoyal");
+
+    modeClassic.addEventListener("click",()=>{
+        if(turn===0){
+        mode="classic"
+        modeClassic.classList.add("modeCurrent")
+        modeTriple.classList.remove("modeCurrent")
+        modeRoyal.classList.remove("modeCurrent")
+        checkMode()
+    }
+    })
+    modeTriple.addEventListener("click",()=>{
+        mode="triple"
+        if(turn===0){
+        modeTriple.classList.add("modeCurrent")
+        modeClassic.classList.remove("modeCurrent")
+        modeRoyal.classList.remove("modeCurrent")
+        checkMode()
+    }
+    })
+    modeRoyal.addEventListener("click",()=>{
+        mode="royal"
+        if(turn===0){
+        modeRoyal.classList.add("modeCurrent")
+        modeClassic.classList.remove("modeCurrent")
+        modeTriple.classList.remove("modeCurrent")
+        checkMode()
+    }
+    })
+//----------------Mode checking--------------------------
+    function checkMode(){
+    if(mode==="classic"){
+        currentPrizeMoney=[...originalPrizeMoney]
+        currentPrizeMoney=currentPrizeMoney.map((element)=>{
+            return element*1
+        })
+        prizeMoney=[...currentPrizeMoney]
+    }
+
+    if(mode==="triple"){
+        currentPrizeMoney=[...originalPrizeMoney]
+        currentPrizeMoney=currentPrizeMoney.map((element)=>{
+            return element*3
+        })
+        prizeMoney=[...currentPrizeMoney]
+    }
+
+    if(mode==="royal"){
+        currentPrizeMoney=[...originalPrizeMoney]
+        currentPrizeMoney=currentPrizeMoney.map((element)=>{
+            return element*5    
+        })
+        prizeMoney=[...currentPrizeMoney]
+    }
+    const entryPrice = document.querySelector("#entryPrice")
+    let entryPriceAmount = prizeMoney.reduce((startElement,nextElement)=>{return (startElement+nextElement)},0)
+    entryPriceAmount=Math.round(entryPriceAmount/prizeMoney.length/100)*100
+    entryPrice.innerHTML=`$${entryPriceAmount.toLocaleString()}`
+}
+modeClassic.classList.add("modeCurrent");
