@@ -20,7 +20,6 @@
         background-color: #b7b7b7;
         font-family: Arial, Helvetica, sans-serif;
         /* overflow: hidden; */
-        margin-top: 150px;
     }
 
     .nav {
@@ -59,6 +58,8 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        gap:60px;
+        margin-top: 250px;
     }
 
     .design:hover {
@@ -81,7 +82,6 @@
         z-index: 5;
         position: absolute;
         transition: transform 2s ease;
-        margin-bottom: -4rem;
     }
 
     #row1_design {
@@ -110,35 +110,23 @@
         background-color: white;
     }
 
-    .whole_set {
-        display: flex;
-        align-items: center;
-        margin-top: 0px;
-    }
-
-    .lady {
-        font-size: 7.5rem;
-        margin-left: -4.5rem;
-        margin-bottom: 1rem;
-        z-index: -1;
-        margin-right: -2rem;
+    .wholeSet {
+        position: relative;
+        margin-top: -50px;
     }
 
     .inner_design {
         width: 6rem;
         height: 3.75rem;
         background: linear-gradient(to bottom, #09ff01, #138b01);
-        z-index: 0;
         border: solid;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         font-size: 0.9rem;
-        position: relative;
         color: black;
-        text-align: center;
         font-family: "Bungee", sans-serif;
-        margin-bottom: -4rem;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
     }
 
     .design#clicked {
@@ -608,6 +596,15 @@
         font-size: 300%;
     }
 
+    .lady img{
+        height: 100px;
+        width:100px;
+        pointer-events: none;
+        margin-bottom: -11px;
+        position: relative;
+        z-index: -1;
+    }
+
 </style>
 </head>
 
@@ -622,8 +619,12 @@
 </div>
 
 <main class="main">
-    <div class="whole_set" id="hidden">
-        <div class="inner_design">$500,000</div>
+    <div class="wholeSet">
+
+        <div class="lady">
+            <img src="./SVG_folders/woman1.svg" alt="woman power">
+        </div>
+
         <div class="design">
             <div id="row1_design"></div>
             <div id="row2_design">
@@ -633,7 +634,7 @@
             </div>
         </div>
 
-        <div class="lady"></div>
+        <div class="inner_design">$500,000</div>
     </div>
 </main>
 

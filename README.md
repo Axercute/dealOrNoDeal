@@ -38,8 +38,6 @@ Player picks a case for himself
 Banker will offer every few cases opened
 Every few cases opened are [5,5,5,3,3,2]
 
-Future development:
-
 Emojis used as deal or no deal lady will be randomized:
 🫃🫃🏻🫃🏼🫃🏽🫃🏾🫃🏿🫄🫄🏻🫄🏼🫄🏽🫄🏿🫄🏾
 
@@ -55,3 +53,11 @@ Challenges:
 Setting up javascript function on creating element.
 Making mistake of not making them a class first but ID
 Mistake of not setting saved value for the generate function
+factory reset function
+Notification menu
+
+
+Future development:
+Modes
+mobile
+emojis available everywhere
