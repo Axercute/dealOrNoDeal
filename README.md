@@ -61,3 +61,6 @@ Future development:
 Modes
 mobile
 emojis available everywhere
+
+Slides available for presentation
+https://docs.google.com/presentation/d/1h_ANxkHIRrM2JiAyDtaKTqPG26qKBQfpxD9OC6o7yH8/edit?usp=sharing
